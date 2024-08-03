@@ -1,7 +1,7 @@
 all:bf bfc
 
-bf:brainfuck-compiler.c
-	cc -o bf brainfuck-compiler.c -O3 -s
+bf:brainfuck-interpreter.c
+	cc -o bf brainfuck-interpreter.c -O3 -s
 
 bfc:brainfuck-compiler.c
 	cc -o bfc brainfuck-compiler.c -O3 -s
