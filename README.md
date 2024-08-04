@@ -39,7 +39,7 @@ To run the interpreter with one or more Brainfuck files:
 bf file1.bf file2.bf ...
 ```
 
-To run the interpreter in interactive mode, providing Brainfuck code via standard input:
+To run the interpreter in interactive mode, providing Brainfuck code via standard input (Ctrl+z or Ctrl+d to input EOF):
 
 ```
 bf
@@ -57,6 +57,11 @@ To compile one or more Brainfuck files:
 ```
 bfc file1.bf file2.bf ...
 ```
+
+# examples-from-others  
+  
+Collect from other GitHub repositories, websites, or Google search results, and show their URLs, README.md files, and LICENSE files if possible.
+
 
 # Contributing
 

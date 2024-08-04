@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head><meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>some brainfuck fluff</title>
+<meta name="description" content="Includes a complete language reference, plus my many brainfuck programs and some implementations and commentary.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="https://brainfuck.org/favicon.ico">
+<link rel="shortcut icon" href="https://brainfuck.org/favicon.ico">
+</head>
+<body>
+<h2>some brainfuck fluff by <a href="daniel.png">daniel b cristofani</a> <font size="+0">("krisst-OFF-uh-nee")</font></h2>
+<font size="+2"><a href="brainfuck.html">Reference to the brainfuck language</a>.</font>
+<font size="-3"><br><br></font>
+Please read <font size="+1"><a href="epistle.html">the Epistle to the Implementors</a></font> before implementing brainfuck,<br>and use <a href="tests.b">these tests</a> (or the equivalent) after.<font size="-3"><br><br></font>
+<font size="+1"><s><a href="intermediate.html">Suggestions for intermediate brainfuck programmers.</a></s></font>
+<font size="-3"><br><br></font>
+<font size="+2">Better: check out my nascent <strong>"<a href="ggab.html">get good at brainfuck</a>"</strong> series.</font>
+<font size="-3"><br><br></font>
+<font size="+1">My brainfuck programs:</font><br>
+(Note: I'm licensing all of these under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0
+International License</a>. Haven't got around to putting that into all the individual files.)<br>
+<a href="bsort.b">bsort.b</a>, a bubble sort program<br>
+<a href="collatz.b">collatz.b</a>, a mathematical function<br>
+<a href="dbf2c.b">dbf2c.b</a>, a brainfuck-to-C translator<br>
+<a href="dbfi.b">dbfi.b</a>, a brainfuck interpreter<br>
+<a href="null.b">null.b</a>, <a href="392quine.b">392quine.b</a>, <a href="400quine.b">400quine.b</a>, <a href="dquine.b">dquine.b</a>; quines (392 may be the shortest real one known)<br>
+<a href="dvorak.b">dvorak.b</a>, a Dvorak filter for QWERTY keyboards<br>
+<a href="e.b">e.b</a>, my monsterpiece, which computes the transcendental number e<br>
+<a href="factorial2.b">factorial2.b</a>, which outputs arbitrarily many factorials much faster than <a href="factorial.b">factorial.b</a><br>
+<a href="fib.b">fib.b</a>, which outputs arbitrarily many Fibonacci numbers<br>
+<a href="golden.b">golden.b</a>, which computes the "golden ratio"<br>
+<a href="head.b">head.b</a>, which outputs ten lines of its input<br>
+<a href="impeccable.b">impeccable.b</a>, which outputs a nice mathematical sequence<br>
+<a href="isort.b">isort.b</a>, an insertion sort program<br>
+<a href="jabh.b">jabh.b</a>, a borrowed Perl tradition<br>
+<a href="life.b">life.b</a>, Conway's Game of Life<br>
+<a href="numwarp.b">numwarp.b</a>, a number...obfuscator? Prettifier? (<a href="numwarp.png">sample output</a>)<br>
+<a href="qsort.b">qsort.b</a>, a Quicksort program<br>
+<a href="random.b">random.b</a>, a random number generator <a href="random.txt">based on</a> a cellular automaton<br>
+<a href="rot13.b">rot13.b</a>, an unconcise, template-y rot13<br>
+<a href="short.b">short.b</a>, an assortment of small programs<br>
+<a href="sierpinski.b">sierpinski.b</a>, which outputs a Sierpi&#324;ski triangle<br>
+<a href="squares.b">squares.b</a>, which outputs square numbers from 0 to 10000<br>
+<a href="squares2.b">squares2.b</a>, which outputs arbitrarily many squares<br>
+<a href="thuemorse.b">thuemorse.b</a>, which outputs the Thue-Morse sequence<br>
+<a href="tictactoe.b">tictactoe.b</a>, which plays tic-tac-toe<br>
+<a href="utm.b">utm.b</a>, a universal Turing machine<br>
+<a href="wc.b">wc.b</a>, the standard (line and) word (and character) count utility<br>
+<a href="xmastree.b">xmastree.b</a>, which outputs an ASCII Christmas tree<br>
+<a href="notes_on_brainfuck_progs.txt">Brief explanatory comments on most of these programs</a><br>
+<a href="http://www.hevanet.com/cristofd/08.html">Draft</a> of a paper about <a href="dbfi.b">dbfi.b</a><font size="-3"><br></font><br>
+<font size="+1">My brainfuck implementations:</font><br>
+A <a href="qdb.c">quick and dirty interpreter</a> in C, or 
+<a href="qdb.zip">as a Windows executable</a> if you like<br>
+A <a href="sbi.c">clean and simple, but slow, interpreter</a> in C<br>
+The <a href="bcci.c">unreasonably restrictive, score-computing interpreter used for BFCC</a><br>
+<a href="dbc.c">dbc.c</a>, a compiler for Sun machines<br>
+<a href="di.html">di.html</a>, a tiny slow-ish interpreter in JavaScript<br>
+(made using <a href="https://web.archive.org/web/20081226152221/http://justice.loyola.edu/~mcoffey/pr/5k/">this interpreter</a> as a starting point)<font size="-3"><br></font><br>
+
+<font size="+1">Contest results:</font><br>
+<a href="results0.txt">The results</a> of Brainfuck Golf contest 0 (text-to-brainfuck)<br>
+<a href="results1.txt">The results</a> of Golf contest 1 (Von Neumann integers)<br>
+<a href="results2.txt">The results</a> of Golf contest 2 (sort bytes)<br>
+<a href="collatz.b">The results</a> of the Brainfuck Texas Holdem contest :/<br>
+<a href="bfcc1.txt">The results</a> of Brainfuck Component Competition #1 (reverse bytes)<br>
+<a href="logical.txt">The results</a> of the Logical Brainfuck Competition<br>
+<a href="golf3.html">The results</a> of, I suppose, Golf contest 3? I won an <a href="abacus_back.jpg">inscribed</a> <a href="abacus_front.jpg">abacus</a>.<font size="-3"><br></font><br>
+
+<font size="+1">A few other pages:</font><br>
+<a href="http://www.iwriteiam.nl/Ha_BF.html">Frans Faase's page</a><br>
+<a href="http://www.muppetlabs.com/%7Ebreadbox/bf/">Brian Raiter's page</a><br>
+<a href="http://aminet.net/package.php?package=dev/lang/brainfuck-2.lha">Urban M&uuml;ller's canonical brainfuck distribution</a><br>
+<a href="http://esoteric.sange.fi/brainfuck/">The brainfuck archive</a>, last updated some years ago<br>
+<br>
+Incidentally, feel free to email me at (my first name) (at) (this domain dot org), and I'll try to respond in a vaguely timely fashion (no promises).<br>
+<br>
+</body></html>

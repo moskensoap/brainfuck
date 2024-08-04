@@ -101,6 +101,7 @@ void generate_c_code(FILE *output_file, char *brainfuck_code)
     fprintf(output_file, "    }\n");
     fprintf(output_file, "    memset(array, 0, a_size);\n");
     fprintf(output_file, "    char *ptr = array + a_size / 2;\n\n");
+    fprintf(output_file, "    int temp = 0;\n\n");
 
     Stack stack;
     init_stack(&stack);
@@ -131,7 +132,7 @@ void generate_c_code(FILE *output_file, char *brainfuck_code)
             fprintf(output_file, "    fflush(stdout);\n");
             break;
         case ',':
-            fprintf(output_file, "    int temp = getchar();\n");
+            fprintf(output_file, "    temp = getchar();\n");
             fprintf(output_file, "    if (temp == EOF)\n");
             fprintf(output_file, "    *ptr = 0;\n");
             fprintf(output_file, "    else\n");

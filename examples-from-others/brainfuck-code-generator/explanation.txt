@@ -1,0 +1,11 @@
+,>++++++++++<                                   (N) 10                      Store the character N and the modulus
+[->-[>+>>]>[+[-<+>]>+>>]<<<<<]                  (0) 0 N%10 (N/10)           Calculate N mod 10 and N / 10
+>>>>++++++++++                                  0 0 N%10 N/10 (10)          Set loop counter to 10
+[>++++>++++++>+++++++++<<<-]>+++>++>+<<<<       0 0 N%10 (N/10) 0 43 62 91  Store characters for +, > and [
+[>>.<<-]                                        0 0 N%10 (0) 0 43 62 91     Print as many +'s as N / 10
+>>>>.<.                                         0 0 N%10 0 0 43 (62) 91     Print [>
+<<++++++++++                                    0 0 N%10 0 (10) 43 62 91    Set loop counter to 10
+[>.<-]                                          0 0 N%10 0 (0) 43 62 91     Print 10 +'s
+>>--.<++.-->>++.<++.<<<<                        0 0 (N%10) 0 0 43 62 93     Print <-]>
+[>>>.<<<-]                                      0 0 (0) 0 0 43 62 93        Print as many +'s as N mod 10
+>>>+++.                                         0 0 0 0 0 (46) 62 93        Print .

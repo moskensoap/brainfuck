@@ -1,0 +1,74 @@
+\"  Copyright 2016 Fabian Mastenbroek
+\"
+\" Licensed under the Apache License, Version 2.0 (the "License");
+\" you may not use this file except in compliance with the License.
+\" You may obtain a copy of the License at
+\"
+\"     http://www.apache.org/licenses/LICENSE-2.0
+\"
+\" Unless required by applicable law or agreed to in writing, software
+\" distributed under the License is distributed on an "AS IS" BASIS,
+\" WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+\" See the License for the specific language governing permissions and
+\" limitations under the License.
+.Dd March 09, 2019
+.Dt brainfuck 1
+.Os UNIX
+.Sh NAME
+.Nm brainfuck
+.Nd brainfuck interpreter
+.Sh SYNOPSIS
+.Nm
+.Op Fl evh                \" [-veh]
+.Op Ar
+.Sh DESCRIPTION
+A brainfuck interpreter written in C.
+.Pp
+.Sh SYNTAX
+The brainfuck syntax is described below:
+.Pp
+.Bl -tag -width -indent
+.It Sy >
+Increment the data pointer (to point to the next cell to the right).
+.It Sy <
+Decrement the data pointer (to point to the next cell to the left).
+.It Sy +
+Increment (increase by one) the byte at the data pointer.
+.It Sy -
+Decrement (decrease by one) the byte at the data pointer.
+.It Sy \&.
+Output the byte at the data pointer as an ASCII encoded character.
+.It Sy \&,
+Accept one byte of input, storing its value in the byte at the data pointer.
+.It Sy \&[
+If the byte at the data pointer is zero, then instead of moving the instruction pointer forward to the next command, jump it forward to the command after the matching 
+.Sy \&]
+token.
+.It Sy \&]
+If the byte at the data pointer is nonzero, then instead of moving the instruction pointer forward to the next command, jump it back to the command after the matching 
+.Sy \&[
+token.
+.El
+.Sh FLAGS
+.Bl -tag -width -indent
+.It Fl e | -eval
+Direct input mode
+.It Fl v | -version
+Show version information
+.It Fl h | -help
+Show help message
+.El
+.Pp
+.Sh FILES  
+.Bl -tag -width -indent
+.It Pa /usr/local/bin/brainfuck
+The main brainfuck executable.
+.It Pa /usr/local/lib/libbrainfuck.a
+Static library to run interpreter programmatically.
+.It Pa /usr/local/include/brainfuck/brainfuck.h
+Application programming interface of the library.
+.It Pa /usr/local/man/man1/brainfuck.1
+This man file.
+.It Pa /usr/local/share/brainfuck/examples
+Directory containing numerous brainfuck example programs.
+.El
