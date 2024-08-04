@@ -128,6 +128,7 @@ void generate_c_code(FILE *output_file, char *brainfuck_code)
             break;
         case '.':
             fprintf(output_file, "    putchar(*ptr);\n");
+            fprintf(output_file, "    fflush(stdout);\n");
             break;
         case ',':
             fprintf(output_file, "    int temp = getchar();\n");
