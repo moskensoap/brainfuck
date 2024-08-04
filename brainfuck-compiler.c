@@ -157,7 +157,11 @@ void generate_c_code(FILE *output_file, char *brainfuck_code)
             fprintf(output_file, "    putchar(*ptr);\n");
             break;
         case ',':
-            fprintf(output_file, "    *ptr = getchar();\n");
+            fprintf(output_file, "    int temp = getchar();\n");
+            fprintf(output_file, "    if (temp == EOF)\n");
+            fprintf(output_file, "    *ptr = 0;\n");
+            fprintf(output_file, "    else\n");
+            fprintf(output_file, "    *ptr = (char)temp;\n");
             break;
         case '[':
             fprintf(output_file, "    while (*ptr) {\n");
