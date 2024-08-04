@@ -126,13 +126,13 @@ void interpret(char *c)
 void generate_c_code(FILE *output_file, char *brainfuck_code)
 {
     fprintf(output_file, "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main() {\n");
-    fprintf(output_file, "    unsigned char *array = malloc(%zu);\n", a_size);
+    fprintf(output_file, "    char *array = malloc(%zu);\n", a_size);
     fprintf(output_file, "    if (array == NULL) {\n");
     fprintf(output_file, "        perror(\"malloc\");\n");
     fprintf(output_file, "        return EXIT_FAILURE;\n");
     fprintf(output_file, "    }\n");
     fprintf(output_file, "    memset(array, 0, %zu);\n", a_size);
-    fprintf(output_file, "    unsigned char *ptr = array + %zu;\n\n", a_size / 2);
+    fprintf(output_file, "    char *ptr = array + %zu;\n\n", a_size / 2);
 
     Stack stack;
     init_stack(&stack);
@@ -199,7 +199,8 @@ int main(int argc, char *argv[])
 
     if (argc < 2)
     {
-        fprintf(stderr, "Usage: %s <Brainfuck source file>\n", argv[0]);
+        fprintf(stderr, "Usage: bfc file.bf\n");
+        fprintf(stderr, "Usage: bfc file1.bf file2.bf ...\n");
         return EXIT_FAILURE;
     }
 
