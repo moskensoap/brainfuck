@@ -111,17 +111,14 @@ void interpret(char *c)
                 expand_memory(&a, &a_size, 1);
                 p = a_size / 2;
             }
-            else
-            {
-                p--;
-            }
+            p--;
             break;
         case '>':
-            p++;
-            if (p >= a_size)
+            if (p >= a_size - 1)
             {
                 expand_memory(&a, &a_size, 0);
             }
+            p++;
             break;
         case '+':
             a[p]++;
