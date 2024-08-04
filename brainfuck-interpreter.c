@@ -75,15 +75,16 @@ void expand_memory(char **arr, size_t *size, int is_left_expansion)
 
     if (is_left_expansion)
     {
+        memset(new_arr, 0, new_size);
         memcpy(new_arr + *size, *arr, *size);
-        free(*arr);
     }
     else
     {
+        memset(new_arr, 0, new_size);
         memcpy(new_arr, *arr, *size);
-        free(*arr);
     }
 
+    free(*arr);
     *arr = new_arr;
     *size = new_size;
 }
@@ -96,7 +97,7 @@ void interpret(char *c)
     char *pc = c; // Program counter
     int tmp;
     unsigned long long bracket_level = 0; // Using larger data type for deep nesting
-    p = 32768;
+    p = a_size / 2;
 
     // Initialize memory array a to zero
     memset(a, 0, a_size);

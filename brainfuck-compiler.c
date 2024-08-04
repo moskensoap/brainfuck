@@ -12,8 +12,8 @@ typedef struct
 } Stack;
 
 char b;
-char *a = NULL, *f = NULL, *s = NULL;
-size_t a_size = 65536, f_size = 65536, p = 32768;
+char *f = NULL, *s = NULL;
+size_t a_size = 65536, f_size = 65536;
 
 // Stack operations
 void init_stack(Stack *stack)
@@ -88,48 +88,19 @@ void expand_memory(char **arr, size_t *size, int is_left_expansion)
     *size = new_size;
 }
 
-void interpret(char *c)
-{
-    char *pc = c; // Program counter
-    p = a_size / 2;
-
-    // Initialize memory array a to zero
-    memset(a, 0, a_size);
-
-    while (*pc)
-    {
-        switch (*pc)
-        {
-        case '<':
-            if (p == 0)
-            {
-                expand_memory(&a, &a_size, 1);
-                p = a_size / 2;
-            }
-            p--;
-            break;
-        case '>':
-            if (p >= a_size - 1)
-            {
-                expand_memory(&a, &a_size, 0);
-            }
-            p++;
-            break;
-        }
-        pc++;
-    }
-}
-
 void generate_c_code(FILE *output_file, char *brainfuck_code)
 {
-    fprintf(output_file, "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main() {\n");
-    fprintf(output_file, "    char *array = malloc(%zu);\n", a_size * 2);
+    fprintf(output_file, "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\n");
+    fprintf(output_file, "void expand_memory(char **arr, size_t *size, int is_left_expansion) {size_t new_size = *size * 2; char *new_arr = malloc(new_size); if (new_arr == NULL) {perror(\"malloc\"); exit(EXIT_FAILURE);} if (is_left_expansion) {memset(new_arr, 0, new_size); memcpy(new_arr + *size, *arr, *size);} else {memset(new_arr, 0, new_size); memcpy(new_arr, *arr, *size);} free(*arr); *arr = new_arr; *size = new_size;}\n");
+    fprintf(output_file, "int main() {\n");
+    fprintf(output_file, "    size_t a_size = %zu;\n\n", a_size);
+    fprintf(output_file, "    char *array = malloc(a_size);\n");
     fprintf(output_file, "    if (array == NULL) {\n");
     fprintf(output_file, "        perror(\"malloc\");\n");
     fprintf(output_file, "        return EXIT_FAILURE;\n");
     fprintf(output_file, "    }\n");
-    fprintf(output_file, "    memset(array, 0, %zu);\n", a_size * 2);
-    fprintf(output_file, "    char *ptr = array + %zu;\n\n", a_size);
+    fprintf(output_file, "    memset(array, 0, a_size);\n");
+    fprintf(output_file, "    char *ptr = array + a_size / 2;\n\n");
 
     Stack stack;
     init_stack(&stack);
@@ -142,9 +113,11 @@ void generate_c_code(FILE *output_file, char *brainfuck_code)
         switch (*pc)
         {
         case '<':
+            fprintf(output_file, "    if (ptr == array){expand_memory(&array, &a_size, 1); ptr = array + a_size / 2;}\n");
             fprintf(output_file, "    --ptr;\n");
             break;
         case '>':
+            fprintf(output_file, "    if (ptr >= array + a_size - 1){expand_memory(&array, &a_size, 0); ptr = array + a_size / 2 - 1;}\n");
             fprintf(output_file, "    ++ptr;\n");
             break;
         case '+':
@@ -231,17 +204,6 @@ int main(int argc, char *argv[])
             }
             *s = 0;
             fclose(z);
-
-            // Interpret to determine required memory size
-            a = malloc(a_size);
-            if (a == NULL)
-            {
-                perror("malloc");
-                free(f);
-                return EXIT_FAILURE;
-            }
-            interpret(f);
-            free(a);
 
             // Generate C code and compile using cc from stdin
             char cc_command[18 + strlen(argv[i])];
