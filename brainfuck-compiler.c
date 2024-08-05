@@ -208,8 +208,8 @@ int main(int argc, char *argv[])
             fclose(z);
 
             // Generate C code and compile using cc from stdin
-            char cc_command[18 + strlen(argv[i])];
-            snprintf(cc_command, sizeof(cc_command), "cc -x c -o %s.exe -", argv[i]);
+            char cc_command[25 + strlen(argv[i])];
+            snprintf(cc_command, sizeof(cc_command), "cc -x c -o %s.exe -O2 -s -", argv[i]);
             FILE *cc = popen(cc_command, "w");
             if (cc == NULL)
             {

@@ -9,7 +9,7 @@ bfc:brainfuck-compiler.c
 others:2bf self-interpreters bfbf bfgen life bf2c brainfuck-code-generator bf2c-awib
 
 2bf:examples-from-others/2bf/2bf.c
-	cc -o 2bf examples-from-others/2bf/2bf.c
+	cc -o 2bf examples-from-others/2bf/2bf.c -O3 -s
 
 self-interpreters:bfc examples-from-others/awesome-brainfuck/self-interpreters/bf-by-adam-domurad-code-percent-input.bf examples-from-others/awesome-brainfuck/self-interpreters/bf-by-clive-gifford-code-exclamation-point-input.bf examples-from-others/awesome-brainfuck/self-interpreters/bf-by-daniel-b-cristofani-code-exclamation-point-input.bf examples-from-others/awesome-brainfuck/self-interpreters/bf-by-frans-faase-code-exclamation-point-input.bf examples-from-others/awesome-brainfuck/self-interpreters/bf-by-keymaker-code-exclamation-point-input.bf
 	./bfc examples-from-others/awesome-brainfuck/self-interpreters/bf-by-adam-domurad-code-percent-input.bf
