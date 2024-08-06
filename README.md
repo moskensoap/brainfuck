@@ -15,7 +15,15 @@ This repository contains a Brainfuck interpreter written in C. It supports dynam
 
 # brainfuck-compiler
 
-The compiler generates C code from Brainfuck source files and passes this C code to the cc compiler via a pipeline.
+The compiler, written in C, generates C code from Brainfuck source files and passes this C code to the `cc` compiler via a pipeline.
+
+## Process
+
+1. Brainfuck source files
+2. C code
+3. Pipeline
+4. `cc` compiler
+5. Executable
 
 ## Features
 
@@ -25,12 +33,14 @@ The compiler generates C code from Brainfuck source files and passes this C code
 
 # brainfuck-generator(tbf.bf)
 
-The generator written in Brainfuck converts normal text to Brainfuck code, which can be directly run via `brainfuck-interpreter` or compiled by `brainfuck-compiler`.
+The generator, written in Brainfuck, converts normal text to Brainfuck code. This code can be directly run using the `brainfuck-interpreter` or compiled with the `brainfuck-compiler`.
 
 ## Idea
 
 1.Make an arithmetic sequence: a(0)=0 a(1)=1 ^^^ a(255)=255 a(256)=256=0
+
 2.Use `<` or `>` to position the pointer according to the relative displacement between the new input char and the old input char
+
 3.Use `.` to putchar
 
 ## Example
