@@ -13,7 +13,7 @@ This repository contains a Brainfuck interpreter written in C. It supports dynam
 * __Interactive Mode:__ Reads Brainfuck code from standard input if no files are provided.
 
 
-# Brainfuck-Compiler
+# brainfuck-compiler
 
 The compiler generates C code from Brainfuck source files and passes this C code to the cc compiler via a pipeline.
 
@@ -23,18 +23,62 @@ The compiler generates C code from Brainfuck source files and passes this C code
 * __Support for Dynamic Memory:__ Handles dynamic memory requirements for large Brainfuck programs.
 * __Pipeline Compilation:__ The generated C code is directly passed to a C compiler using a pipeline, allowing for seamless compilation into executables.
 
-# installation
+# brainfuck-generator(tbf.bf)
 
+The generator written in Brainfuck converts normal text to Brainfuck code, which can be directly run via `brainfuck-interpreter` or compiled by `brainfuck-compiler`.
+
+## Idea
+
+1.Make an arithmetic sequence: a(0)=0 a(1)=1 ^^^ a(255)=255 a(256)=256=0
+2.Use `<` or `>` to position the pointer according to the relative displacement between the new input char and the old input char
+3.Use `.` to putchar
+
+## Example
+
+```
+$ echo hello
+hello
+
+$ echo hello | ./tbf.exe
+>+[[->+>+<<]>+>[-<<+>>]<]
+<[<]
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.<<<.>>>>>>>..>>>.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<.<<<<<<<<<<.
+
+$ echo hello | ./tbf.exe | ./bf
+hello
+```
+```
+$ echo hello | ./bf ./tbf.bf
+>+[[->+>+<<]>+>[-<<+>>]<]
+<[<]
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.<<<.>>>>>>>..>>>.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<.<<<<<<<<<<.
+```
+
+# Installation
+0.Dependencies
+```
+makedepends={'make','cc'}
+depends={'cc'}
+```
 1.Compile the Program
 ```
 make
 ```
-2.move `bf` and `bfc` to a PATH directory
+2.Move `bf`, `bfc`, and `tbf.exe` to a directory in your PATH
+
+3.Optionally, compile Brainfuck code from other projects using `bfc`
+```
+make others
+```
 
 # Usage
 
-To run the interpreter with one or more Brainfuck files:
+## brainfuck-interpreter
 
+To run the interpreter with one or more Brainfuck files:
+```
+bf file.bf
+```
 ```
 bf file1.bf file2.bf ...
 ```
@@ -53,7 +97,12 @@ echo file.bf | bf
 echo file.bf | bf > out.txt
 ```
 
+## brainfuck-compiler
+
 To compile one or more Brainfuck files:
+```
+bfc file.bf
+```
 ```
 bfc file1.bf file2.bf ...
 ```

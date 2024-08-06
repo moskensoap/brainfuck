@@ -1,10 +1,15 @@
-all:bf bfc
+all:bf bfc tbf
 
 bf:brainfuck-interpreter.c
 	cc -o bf brainfuck-interpreter.c -O3 -s
 
 bfc:brainfuck-compiler.c
 	cc -o bfc brainfuck-compiler.c -O3 -s
+
+tbf:tbf.bf
+	./bfc tbf.bf
+	cp tbf.bf.exe tbf.exe
+	rm tbf.bf.exe
 
 others:2bf self-interpreters bfbf bfgen life bf2c brainfuck-code-generator bf2c-awib
 
