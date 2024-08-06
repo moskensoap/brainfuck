@@ -109,6 +109,10 @@ echo file.bf | bf > out.txt
 
 ## brainfuck-compiler
 
+To get Brainfuck code from stdin and put C code to stdout
+```
+echo 'Hello World!' | tbf.exe | bfc
+```
 To compile one or more Brainfuck files:
 ```
 bfc file.bf

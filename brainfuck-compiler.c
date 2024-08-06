@@ -91,7 +91,7 @@ void expand_memory(char **arr, size_t *size, int is_left_expansion)
 void generate_c_code(FILE *output_file, char *brainfuck_code)
 {
     fprintf(output_file, "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\n");
-    fprintf(output_file, "void expand_memory(char **arr, size_t *size, int is_left_expansion) {size_t new_size = *size * 2; char *new_arr = malloc(new_size); if (new_arr == NULL) {perror(\"malloc\"); exit(EXIT_FAILURE);} if (is_left_expansion) {memset(new_arr, 0, new_size); memcpy(new_arr + *size, *arr, *size);} else {memset(new_arr, 0, new_size); memcpy(new_arr, *arr, *size);} free(*arr); *arr = new_arr; *size = new_size;}\n");
+    fprintf(output_file, "void expand_memory(char **arr, size_t *size, int is_left_expansion) {size_t new_size = *size * 2; char *new_arr = malloc(new_size); if (new_arr == NULL) {perror(\"malloc\"); exit(EXIT_FAILURE);} if (is_left_expansion) {memset(new_arr, 0, new_size); memcpy(new_arr + *size, *arr, *size);} else {memset(new_arr, 0, new_size); memcpy(new_arr, *arr, *size);} free(*arr); *arr = new_arr; *size = new_size;}\n\n");
     fprintf(output_file, "int main() {\n");
     fprintf(output_file, "    size_t a_size = %zu;\n\n", a_size);
     fprintf(output_file, "    char *array = malloc(a_size);\n");
@@ -175,9 +175,31 @@ int main(int argc, char *argv[])
 
     if (argc < 2)
     {
-        fprintf(stderr, "Usage: bfc file.bf\n");
-        fprintf(stderr, "Usage: bfc file1.bf file2.bf ...\n");
-        return EXIT_FAILURE;
+        f_size = 65536;
+        f = malloc(f_size);
+        if (f == NULL)
+        {
+            perror("malloc");
+            exit(EXIT_FAILURE);
+        }
+
+        s = f;
+
+        while ((b = getchar()) != EOF)
+        {
+            if (s - f >= f_size - 1)
+            {
+                size_t offset = s - f;
+                expand_memory(&f, &f_size, 0);
+                s = f + offset; // Adjust pointer after realloc
+            }
+            *s++ = b;
+        }
+        *s = 0;
+
+        generate_c_code(stdout, f);
+
+        free(f);
     }
 
     for (int i = 1; i < argc; i++)
