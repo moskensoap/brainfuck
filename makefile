@@ -6,7 +6,7 @@ bf:brainfuck-interpreter.c
 bfc:brainfuck-compiler.c
 	cc -o bfc brainfuck-compiler.c -O3 -s
 
-tbf:tbf.bf
+tbf:bfc tbf.bf
 	./bfc tbf.bf
 	cp tbf.bf.exe tbf.exe
 	rm tbf.bf.exe
