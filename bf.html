@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>The Brainfuck Programming Language</title>
+</head>
+<body bgcolor="#FFFFFC" text="#000000">
+<p align="center">
+<center>
+<h1>Brainfuck</h1>
+</center>
+<p align="center">
+<center>
+<h2>An Eight-Instruction Turing-Complete Programming Language</h2>
+</center>
+<p>
+Brainfuck is the ungodly creation of Urban M&uuml;ller, whose goal was
+apparently to create a Turing-complete language for which he could
+write the smallest compiler ever, for the Amiga OS 2.0. His compiler
+was 240 bytes in size. (Though he improved upon this later -- he
+informed me at one point that he had managed to bring it under 200
+bytes.)
+<p>
+I originally started playing around with Brainfuck because of my own
+interest in writing very small programs for x86 Linux. I also used it
+as a vehicle for writing a program that created ELF files. Eventually,
+however, I too succumbed to the Imp of the Perverse and wrote some
+actual Brainfuck programs of my own.
+<p align="center">
+<center>
+<h3>The Language</h3>
+</center>
+<p>
+A Brainfuck program has an implicit byte pointer, called "the
+pointer", which is free to move around within an array of 30000 bytes,
+initially all set to zero. The pointer itself is initialized to point
+to the beginning of this array.
+<p>
+The Brainfuck programming language consists of eight commands, each of
+which is represented as a single character.
+<p>
+<table>
+<tr><td><tt>&gt;&nbsp;</tt></td><td>Increment the pointer.</tr>
+<tr><td><tt>&lt;&nbsp;</tt></td><td>Decrement the pointer.</tr>
+<tr><td><tt>+&nbsp;</tt></td><td>Increment the byte at the pointer.</tr>
+<tr><td><tt>-&nbsp;</tt></td><td>Decrement the byte at the pointer.</tr>
+<tr><td><tt>.&nbsp;</tt></td><td>Output the byte at the pointer.</tr>
+<tr><td><tt>,&nbsp;</tt></td><td>Input a byte and store it in the byte
+                                 at the pointer.</tr>
+<tr><td><tt>[&nbsp;</tt></td><td>Jump forward past the matching <tt>]</tt>
+                                 if the byte at the pointer is zero.</tr>
+<tr><td><tt>]&nbsp;</tt></td><td>Jump backward to the matching <tt>[</tt>
+                                 unless the byte at the pointer is zero.</tr>
+</table>
+<p>
+The semantics of the Brainfuck commands can also be succinctly
+expressed in terms of C, as follows (assuming that <tt>p</tt> has been
+previously defined as a <tt>char*</tt>):
+<p>
+<table>
+<tr><td><tt>&gt;&nbsp;</tt></td><td>becomes&nbsp;<td><tt>++p;</tt></tr>
+<tr><td><tt>&lt;&nbsp;</tt></td><td>becomes&nbsp;<td><tt>--p;</tt></tr>
+<tr><td><tt>+&nbsp;</tt></td><td>becomes&nbsp;<td><tt>++*p;</tt></tr>
+<tr><td><tt>-&nbsp;</tt></td><td>becomes&nbsp;<td><tt>--*p;</tt></tr>
+<tr><td><tt>.&nbsp;</tt></td><td>becomes&nbsp;<td><tt>putchar(*p);</tt></tr>
+<tr><td><tt>,&nbsp;</tt></td><td>becomes&nbsp;<td><tt>*p = getchar();</tt></tr>
+<tr><td><tt>[&nbsp;</tt></td><td>becomes&nbsp;<td><tt>while (*p) {</tt></tr>
+<tr><td><tt>]&nbsp;</tt></td><td>becomes&nbsp;<td><tt>}</tt></tr>
+</table>
+<p>
+<hr>
+<p align="center">
+<center>
+<h3>Resources</h3>
+</center>
+<p>
+<ul>
+<li>
+<a href="http://www.muppetlabs.com/~breadbox/software/tiny/bf.asm.txt">A
+Brainfuck compiler for Linux</a>. This is the final result of my
+attempt at the tiny-compiler challenge. The executable is 166 bytes in
+size.
+<li>
+My own Brainfuck programs include an 822-byte
+<a href="quine.b.txt">quine</a>, and
+<a href="factor.b.txt">factor</a>, a program that factors arbitrarily
+large integers in an arbitrarly large amount of time &mdash; and what
+may have been, at the time that I wrote it, the largest Brainfuck
+program in existence.
+<li>
+<a href="standards.html">Portable Brainfuck</a>. My informal standards
+guide for programmers and implementers alike.
+<li>
+<a href="http://www.muppetlabs.com/~breadbox/software/elfkickers.html">My
+ELF Kickers package</a> contains several programs that deal with the
+ELF file format. Included is ebfc, a real Brainfuck compiler (compiles
+executables and object files).
+<li>
+<a href="https://catseye.tc/article/Language_Implementations#pibfi">pibfi</a>.
+Cat's Eye Technologies provides pibfi, the Platonic Ideal Brainfuck
+Interpreter. This interpreter can emulate most if not all other
+interpreters.
+<li>
+<a href="http://esoteric.sange.fi/brainfuck/">The Brainfuck
+archive</a>. Panu Kalliokoski provides a collection of Brainfuck
+compilers, interpreters, preprocessors, and of course extant Brainfuck
+programs.
+<li>
+<a href="http://en.wikipedia.org/wiki/Brainfuck">Wikipedia's entry on
+Brainfuck</a>. The entry contains a in-depth description of the
+language and several basic algorithms, as well as a list of derivative
+languages.
+</ul>
+<p>
+<hr>
+<p>
+<small><a href="http://www.muppetlabs.com/~breadbox/">Brian Raiter</a></small>
+</body>
+</html>
