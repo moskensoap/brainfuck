@@ -1,4 +1,4 @@
-( Text to Brainfuck code generator: written by moskensoap 2024 )
+( Brainfuck code to Ook! code translator: written by moskensoap 2024 )
 ( https://github(dot)com/moskensoap/brainfuck )
 #convert Brainfuck code to Ook! code
 
