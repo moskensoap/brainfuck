@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>brainfuck - Esolang</title>
+<script>(function(){var className="client-js";var cookie=document.cookie.match(/(?:^|; )esolang_wikimwclientpreferences=([^;]+)/);if(cookie){cookie[1].split('%2C').forEach(function(pref){className=className.replace(new RegExp('(^| )'+pref.replace(/-clientpref-\w+$|[^\w-]+/g,'')+'-clientpref-\\w+( |$)'),'$1'+pref+'$2');});}document.documentElement.className=className;}());RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"31fa7d64c3766f8caab0785f","wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Brainfuck","wgTitle":"Brainfuck","wgCurRevisionId":132002,"wgRevisionId":132002,"wgArticleId":961,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Featured languages",
+"Languages","Turing tarpits","Low-level","Cell-based","Implemented","Brainfuck","1993","Turing complete"],"wgPageViewLanguage":"en","wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Brainfuck","wgRelevantArticleId":961,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgCheckUserClientHintsHeadersJsApi":["architecture","bitness","brands","fullVersionList","mobile","model","platform","platformVersion"]};RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["site","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js","ext.checkUser.clientHints"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.impl(function(){return["user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+}];});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=skins.vector.styles.legacy&amp;only=styles&amp;skin=vector">
+<script async="" src="/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector">
+<meta name="generator" content="MediaWiki 1.42.1">
+<meta name="robots" content="max-image-preview:standard">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=1000">
+<link rel="icon" href="/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Esolang (en)">
+<link rel="EditURI" type="application/rsd+xml" href="//esolangs.org/w/api.php?action=rsd">
+<link rel="canonical" href="https://esolangs.org/wiki/Brainfuck">
+<link rel="license" href="/wiki/Esolang:Copyrights">
+<link rel="alternate" type="application/atom+xml" title="Esolang Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom">
+</head>
+<body class="skin-vector-legacy mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Brainfuck rootpage-Brainfuck skin-vector action-view"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">brainfuck</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Esolang</div>
+		<div id="contentSub"><div id="mw-content-subtitle"></div></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content"><div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><dl><dd><span class="dablink"><i>Not to be confused with <a href="/wiki/BRaInFUCK" title="BRaInFUCK">BRaInFUCK</a>.</i></span></dd></dl>
+<p><a href="/wiki/Esolang:Featured_languages" title="Esolang:Featured languages"><span class="featured-icon" title="This is a featured language; *click* for more information."></span></a></p><div class="featured-text">
+<dl><dd><i>This is a <a href="/wiki/Esolang:Featured_languages" title="Esolang:Featured languages">featured language</a>.</i></dd></dl>
+</div>
+<table style="float:right;border:1px solid silver;background-color:rgb(249, 249, 249);max-width:256px;padding:5px;">
+<caption><b>brainfuck</b></caption>
+
+<tbody><tr>
+<th style="text-align: left;vertical-align: top;"><a href="/wiki/Esolang:Categorization#Paradigm" title="Esolang:Categorization">Paradigm(s)</a></th>
+<td>imperative</td>
+</tr>
+<tr>
+<th style="text-align: left;vertical-align: top;">Designed by</th>
+<td><a href="/wiki/Urban_M%C3%BCller" title="Urban Müller">Urban Müller</a></td>
+</tr>
+<tr>
+<th style="text-align: left;vertical-align: top;"><a href="/wiki/Category:Years" title="Category:Years">Appeared in</a></th>
+<td><a href="/wiki/Category:1993" title="Category:1993">1993</a></td>
+</tr>
+
+<tr>
+<th style="text-align: left;vertical-align: top;"><a href="/wiki/Esolang:Categorization#Memory" title="Esolang:Categorization">Memory system</a></th>
+<td><a href="/wiki/Category:Cell-based" title="Category:Cell-based">Cell-based</a></td>
+</tr>
+<tr>
+<th style="text-align: left;vertical-align: top;"><a href="/wiki/Esolang:Categorization#Dimensions" title="Esolang:Categorization">Dimensions</a></th>
+<td>one-dimensional</td>
+</tr>
+<tr>
+<th style="text-align: left;vertical-align: top;"><a href="/wiki/Computational_class" title="Computational class">Computational class</a></th>
+<td><a href="/wiki/Category:Turing_complete" title="Category:Turing complete">Turing complete</a></td>
+</tr>
+<tr>
+<th style="text-align: left;vertical-align: top;">Major implementations</th>
+<td><a rel="nofollow" class="external text" href="http://main.aminet.net/dev/lang/brainfuck-2.lha">Original</a>, <a rel="nofollow" class="external text" href="http://code.google.com/p/awib/">Awib</a>, <a rel="nofollow" class="external text" href="http://mazonka.com/brainf/">Optimizing BF interpreter</a></td>
+</tr>
+
+<tr>
+<th style="text-align: left;vertical-align: top;">Influenced by</th>
+<td><a href="/wiki/FALSE" title="FALSE">FALSE</a> <br /><a href="/wiki/P%27%27" class="mw-redirect" title="P&#39;&#39;">P''</a></td>
+</tr>
+<tr>
+<th style="text-align: left;vertical-align: top;">Influenced</th>
+<td><a href="/wiki/Category:Brainfuck_derivatives" title="Category:Brainfuck derivatives">List of derivatives</a></td>
+</tr>
+<tr>
+<th style="text-align: left;vertical-align: top;">File extension(s)</th>
+<td><code>.b</code>, <code>.bf</code></td>
+</tr>
+</tbody></table>
+<dl><dd><i>Note that <b>brainfuck</b> is typically lowercased except, often, at the start of a sentence.</i></dd></dl>
+<p><b>Brainfuck</b> is one of the most famous <a href="/wiki/Esoteric_programming_language" title="Esoteric programming language">esoteric programming languages</a>, and has inspired the creation of a host of other languages. Due to the fact that the last half of its name is often considered one of the most offensive words in the English language, it is sometimes referred to as "brainf***", "brainf*ck", "brainfsck", "b****fuck" , "brainf**k", "branflakes", "brainoof", "brainfrick", "bf", etc. This can make it a bit difficult to search for information regarding brainfuck on the web, as the proper name might not be used at all in some articles.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Language_overview"><span class="tocnumber">1</span> <span class="toctext">Language overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#History"><span class="tocnumber">2</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Examples"><span class="tocnumber">3</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Hello,_World!"><span class="tocnumber">3.1</span> <span class="toctext">Hello, World!</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Move_value"><span class="tocnumber">3.2</span> <span class="toctext">Move value</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Cat"><span class="tocnumber">3.3</span> <span class="toctext">Cat</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Cell_Size"><span class="tocnumber">3.4</span> <span class="toctext">Cell Size</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Looping_counter"><span class="tocnumber">3.5</span> <span class="toctext">Looping counter</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Truth-machine_(kinda)"><span class="tocnumber">3.6</span> <span class="toctext">Truth-machine (kinda)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Self-interpreters"><span class="tocnumber">4</span> <span class="toctext">Self-interpreters</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Computational_class"><span class="tocnumber">5</span> <span class="toctext">Computational class</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Algorithms"><span class="tocnumber">6</span> <span class="toctext">Algorithms</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#Simple_instruction_examples"><span class="tocnumber">6.1</span> <span class="toctext">Simple instruction examples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="#Extensions"><span class="tocnumber">7</span> <span class="toctext">Extensions</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#Conventions"><span class="tocnumber">8</span> <span class="toctext">Conventions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="#Memory"><span class="tocnumber">8.1</span> <span class="toctext">Memory</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Input_and_Output"><span class="tocnumber">8.2</span> <span class="toctext">Input and Output</span></a>
+<ul>
+<li class="toclevel-3 tocsection-18"><a href="#Newlines"><span class="tocnumber">8.2.1</span> <span class="toctext">Newlines</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="#EOF"><span class="tocnumber">8.2.2</span> <span class="toctext">EOF</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="#Character_set"><span class="tocnumber">8.2.3</span> <span class="toctext">Character set</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="#GUI_and_Other_I/O"><span class="tocnumber">8.2.4</span> <span class="toctext">GUI and Other I/O</span></a>
+<ul>
+<li class="toclevel-4 tocsection-22"><a href="#GUI_Pong_/_Simple_UNIX_Shell"><span class="tocnumber">8.2.4.1</span> <span class="toctext">GUI Pong / Simple UNIX Shell</span></a></li>
+<li class="toclevel-4 tocsection-23"><a href="#PPM_file_output"><span class="tocnumber">8.2.4.2</span> <span class="toctext">PPM file output</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-24"><a href="#Implementation_issues"><span class="tocnumber">8.3</span> <span class="toctext">Implementation issues</span></a>
+<ul>
+<li class="toclevel-3 tocsection-25"><a href="#Memory_and_wrapping"><span class="tocnumber">8.3.1</span> <span class="toctext">Memory and wrapping</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="#Newlines_2"><span class="tocnumber">8.3.2</span> <span class="toctext">Newlines</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="#EOF_2"><span class="tocnumber">8.3.3</span> <span class="toctext">EOF</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-28"><a href="#Related_languages"><span class="tocnumber">9</span> <span class="toctext">Related languages</span></a></li>
+<li class="toclevel-1 tocsection-29"><a href="#See_also"><span class="tocnumber">10</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-30"><a href="#External_resources"><span class="tocnumber">11</span> <span class="toctext">External resources</span></a>
+<ul>
+<li class="toclevel-2 tocsection-31"><a href="#Notable_implementations"><span class="tocnumber">11.1</span> <span class="toctext">Notable implementations</span></a>
+<ul>
+<li class="toclevel-3 tocsection-32"><a href="#Compilers"><span class="tocnumber">11.1.1</span> <span class="toctext">Compilers</span></a></li>
+<li class="toclevel-3 tocsection-33"><a href="#Interpreters_in_plain_C"><span class="tocnumber">11.1.2</span> <span class="toctext">Interpreters in plain C</span></a></li>
+<li class="toclevel-3 tocsection-34"><a href="#Interpreters_in_C++"><span class="tocnumber">11.1.3</span> <span class="toctext">Interpreters in C++</span></a></li>
+<li class="toclevel-3 tocsection-35"><a href="#JIT_Interpreters"><span class="tocnumber">11.1.4</span> <span class="toctext">JIT Interpreters</span></a></li>
+<li class="toclevel-3 tocsection-36"><a href="#Hardware_implementations"><span class="tocnumber">11.1.5</span> <span class="toctext">Hardware implementations</span></a></li>
+<li class="toclevel-3 tocsection-37"><a href="#Libraries"><span class="tocnumber">11.1.6</span> <span class="toctext">Libraries</span></a></li>
+<li class="toclevel-3 tocsection-38"><a href="#JavaScript_interpreters"><span class="tocnumber">11.1.7</span> <span class="toctext">JavaScript interpreters</span></a></li>
+<li class="toclevel-3 tocsection-39"><a href="#Rust_interpreter"><span class="tocnumber">11.1.8</span> <span class="toctext">Rust interpreter</span></a></li>
+<li class="toclevel-3 tocsection-40"><a href="#Python_interpreters"><span class="tocnumber">11.1.9</span> <span class="toctext">Python interpreters</span></a></li>
+<li class="toclevel-3 tocsection-41"><a href="#Dart_interpreters"><span class="tocnumber">11.1.10</span> <span class="toctext">Dart interpreters</span></a></li>
+<li class="toclevel-3 tocsection-42"><a href="#Powershell_interpreters"><span class="tocnumber">11.1.11</span> <span class="toctext">Powershell interpreters</span></a></li>
+<li class="toclevel-3 tocsection-43"><a href="#Haskell_interpreters"><span class="tocnumber">11.1.12</span> <span class="toctext">Haskell interpreters</span></a></li>
+<li class="toclevel-3 tocsection-44"><a href="#Interpreters_in_other_esolangs"><span class="tocnumber">11.1.13</span> <span class="toctext">Interpreters in other esolangs</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Language_overview">Language overview</span></h2>
+<p>Brainfuck operates on an array of memory cells, each initially set to zero. (In the original implementation, the array was 30,000 cells long, but this may not be part of the language specification; different sizes for the array length and cell size give different variants of the language). There is a <a href="/wiki/Pointer" title="Pointer">pointer</a>, initially pointing to the first memory cell. The commands are:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Command
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td style="text-align:center"><code>&gt;</code>
+</td>
+<td>Move the pointer to the right
+</td></tr>
+<tr>
+<td style="text-align:center"><code>&lt;</code>
+</td>
+<td>Move the pointer to the left
+</td></tr>
+<tr>
+<td style="text-align:center"><code>+</code>
+</td>
+<td>Increment the memory cell at the pointer
+</td></tr>
+<tr>
+<td style="text-align:center"><code>-</code>
+</td>
+<td>Decrement the memory cell at the pointer
+</td></tr>
+<tr>
+<td style="text-align:center"><code>.</code>
+</td>
+<td>Output the character signified by the cell at the pointer
+</td></tr>
+<tr>
+<td style="text-align:center"><code>,</code>
+</td>
+<td>Input a character and store it in the cell at the pointer
+</td></tr>
+<tr>
+<td style="text-align:center"><code>[</code>
+</td>
+<td>Jump past the matching <code>]</code> if the cell at the pointer is 0
+</td></tr>
+<tr>
+<td style="text-align:center"><code>]</code>
+</td>
+<td>Jump back to the matching <code>[</code> if the cell at the pointer is nonzero
+</td></tr></tbody></table>
+<p>All characters other than <code>&gt;&lt;+-.,[]</code> should be considered comments and ignored. But, see extensions below.
+</p>
+<h2><span class="mw-headline" id="History">History</span></h2>
+<p>Brainfuck was invented by <a href="/wiki/Urban_M%C3%BCller" title="Urban Müller">Urban Müller</a> in <a href="/wiki/Category:1993" title="Category:1993">1993</a>, in an attempt to make a language for which he could write the smallest possible <a href="/wiki/Compiler" title="Compiler">compiler</a> for the Amiga OS, version 2.0. He managed to write a 240-byte compiler. The language was inspired by <a href="/wiki/FALSE" title="FALSE">FALSE</a>, which had a 1024-byte compiler.  Müller chose to name the language <i>brainfuck</i> (with the initial letter in lower case, although it is now often capitalised).
+</p><p>It is not known to what extent Müller was aware of or influenced by Böhm's language <a href="/wiki/P%E2%80%B2%E2%80%B2" title="P′′">P′′</a> published in 1964, of which brainfuck can be considered a minor variation.
+</p>
+<h2><span class="mw-headline" id="Examples">Examples</span></h2>
+<h3><span id="Hello.2C_World.21"></span><span class="mw-headline" id="Hello,_World!"><a href="/wiki/Hello,_World!" class="mw-redirect" title="Hello, World!">Hello, World!</a></span></h3>
+<p>This program prints out the words <i>Hello World!</i>:
+</p>
+<div style="border: 1px solid #ddd;padding:1em;background-color:#f9f9f9;font-family: monospace,Courier;">
+<p><font color="#a52a2a">&#160;1&#160;</font><font color="#ff00ff">+++++</font>&#160;<font color="#ff00ff">+++</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Set Cell #0 to 8</font><br />
+<font color="#a52a2a">&#160;2&#160;</font><font color="#a52a2a"><b>[</b></font><br />
+<font color="#a52a2a">&#160;3&#160;</font>&#160;&#160;&#160;&#160;<font color="#2e8b57"><b>&gt;</b></font><font color="#ff00ff">++++</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Add 4 to Cell #1; this will always set Cell #1 to 4</font><br />
+<font color="#a52a2a">&#160;4&#160;</font>&#160;&#160;&#160;&#160;<font color="#a52a2a"><b>[</b></font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">as the cell will be cleared by the loop</font><br />
+<font color="#a52a2a">&#160;5&#160;</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#2e8b57"><b>&gt;</b></font><font color="#ff00ff">++</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Add 4*2 to Cell #2</font><br />
+<font color="#a52a2a">&#160;6&#160;</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#2e8b57"><b>&gt;</b></font><font color="#ff00ff">+++</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Add 4*3 to Cell #3</font><br />
+<font color="#a52a2a">&#160;7&#160;</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#2e8b57"><b>&gt;</b></font><font color="#ff00ff">+++</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Add 4*3 to Cell #4</font><br />
+<font color="#a52a2a">&#160;8&#160;</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#2e8b57"><b>&gt;</b></font><font color="#ff00ff">+</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Add 4 to Cell #5</font><br />
+<font color="#a52a2a">&#160;9&#160;</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#2e8b57"><b>&lt;&lt;&lt;&lt;</b></font><font color="#ff00ff">-</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Decrement the loop counter in Cell #1</font><br />
+<font color="#a52a2a">10&#160;</font>&#160;&#160;&#160;&#160;<font color="#a52a2a"><b>]</b></font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Loop till Cell #1 is zero</font><br />
+<font color="#a52a2a">11&#160;</font>&#160;&#160;&#160;&#160;<font color="#2e8b57"><b>&gt;</b></font><font color="#ff00ff">+</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Add 1 to Cell #2</font><br />
+<font color="#a52a2a">12&#160;</font>&#160;&#160;&#160;&#160;<font color="#2e8b57"><b>&gt;</b></font><font color="#ff00ff">+</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Add 1 to Cell #3</font><br />
+<font color="#a52a2a">13&#160;</font>&#160;&#160;&#160;&#160;<font color="#2e8b57"><b>&gt;</b></font><font color="#ff00ff">-</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Subtract 1 from Cell #4</font><br />
+<font color="#a52a2a">14&#160;</font>&#160;&#160;&#160;&#160;<font color="#2e8b57"><b>&gt;&gt;</b></font><font color="#ff00ff">+</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Add 1 to Cell #6</font><br />
+<font color="#a52a2a">15&#160;</font>&#160;&#160;&#160;&#160;<font color="#a52a2a"><b>[</b></font><font color="#2e8b57"><b>&lt;</b></font><font color="#a52a2a"><b>]</b></font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Move back to the first zero cell you find; this will</font><br />
+<font color="#a52a2a">16&#160;</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">be Cell #1 which was cleared by the previous loop</font><br />
+<font color="#a52a2a">17&#160;</font>&#160;&#160;&#160;&#160;<font color="#2e8b57"><b>&lt;</b></font><font color="#ff00ff">-</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Decrement the loop Counter in Cell #0</font><br />
+<font color="#a52a2a">18&#160;</font><font color="#a52a2a"><b>]</b></font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Loop till Cell #0 is zero</font><br />
+<font color="#a52a2a">19&#160;</font><br />
+<font color="#a52a2a">20&#160;</font><font color="#0000ff">The result of this is:</font><br />
+<font color="#a52a2a">21&#160;</font><font color="#0000ff">Cell No&#160;:&#160;&#160; 0&#160;&#160; 1&#160;&#160; 2&#160;&#160; 3&#160;&#160; 4&#160;&#160; 5&#160;&#160; 6</font><br />
+<font color="#a52a2a">22&#160;</font><font color="#0000ff">Contents:&#160;&#160; 0&#160;&#160; 0&#160;&#160;72 104&#160;&#160;88&#160;&#160;32&#160;&#160; 8</font><br />
+<font color="#a52a2a">23&#160;</font><font color="#0000ff">Pointer&#160;:&#160;&#160; ^</font><br />
+<font color="#a52a2a">24&#160;</font><br />
+<font color="#a52a2a">25&#160;</font><font color="#2e8b57"><b>&gt;&gt;</b></font><font color="#6a5acd">.</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Cell #2 has value 72 which is 'H'</font><br />
+<font color="#a52a2a">26&#160;</font><font color="#2e8b57"><b>&gt;</b></font><font color="#ff00ff">---</font><font color="#6a5acd">.</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Subtract 3 from Cell #3 to get 101 which is 'e'</font><br />
+<font color="#a52a2a">27&#160;</font><font color="#ff00ff">+++++</font>&#160;<font color="#ff00ff">++</font><font color="#6a5acd">..</font><font color="#ff00ff">+++</font><font color="#6a5acd">.</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Likewise for 'llo' from Cell #3</font><br />
+<font color="#a52a2a">28&#160;</font><font color="#2e8b57"><b>&gt;&gt;</b></font><font color="#6a5acd">.</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Cell #5 is 32 for the space</font><br />
+<font color="#a52a2a">29&#160;</font><font color="#2e8b57"><b>&lt;</b></font><font color="#ff00ff">-</font><font color="#6a5acd">.</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Subtract 1 from Cell #4 for 87 to give a 'W'</font><br />
+<font color="#a52a2a">30&#160;</font><font color="#2e8b57"><b>&lt;</b></font><font color="#6a5acd">.</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Cell #3 was set to 'o' from the end of 'Hello'</font><br />
+<font color="#a52a2a">31&#160;</font><font color="#ff00ff">+++</font><font color="#6a5acd">.</font><font color="#ff00ff">-----</font>&#160;<font color="#ff00ff">-</font><font color="#6a5acd">.</font><font color="#ff00ff">-----</font>&#160;<font color="#ff00ff">---</font><font color="#6a5acd">.</font>&#160;&#160;<font color="#0000ff">Cell #3 for 'rl' and 'd'</font><br />
+<font color="#a52a2a">32&#160;</font><font color="#2e8b57"><b>&gt;&gt;</b></font><font color="#ff00ff">+</font><font color="#6a5acd">.</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">Add 1 to Cell #5 gives us an exclamation point</font><br />
+<font color="#a52a2a">33&#160;</font><font color="#2e8b57"><b>&gt;</b></font><font color="#ff00ff">++</font><font color="#6a5acd">.</font>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="#0000ff">And finally a newline from Cell #6</font><br />
+</p>
+</div>
+<p>The same program in minimised form:
+</p>
+<pre>++++++++[&gt;++++[&gt;++&gt;+++&gt;+++&gt;+&lt;&lt;&lt;&lt;-]&gt;+&gt;+&gt;-&gt;&gt;+[&lt;]&lt;-]&gt;&gt;.&gt;---.+++++++..+++.&gt;&gt;.&lt;-.&lt;.+++.------.--------.&gt;&gt;+.&gt;++.
+</pre>
+<p>This is another program that prints out <code>Hello, World!</code> with correct spacing, case and punctuation:
+</p>
+<pre>+++++++++++[&gt;++++++&gt;+++++++++&gt;++++++++&gt;++++&gt;+++&gt;+&lt;&lt;&lt;&lt;&lt;&lt;-]&gt;+++
++++.&gt;++.+++++++..+++.&gt;&gt;.&gt;-.&lt;&lt;-.&lt;.+++.------.--------.&gt;&gt;&gt;+.&gt;-.
+</pre>
+<p>This is a slightly more complex variant that often triggers interpreter bugs.  This uses cell values below zero and so doesn't work on <a rel="nofollow" class="external text" href="http://www.hevanet.com/cristofd/brainfuck/">unreasonably restrictive, score-computing interpreters</a>.
+</p>
+<pre>&gt;++++++++[-&lt;+++++++++&gt;]&lt;.&gt;&gt;+&gt;-[+]++&gt;++&gt;+++[&gt;[-&gt;+++&lt;&lt;+++&gt;]&lt;&lt;]&gt;-----.&gt;-&gt;
++++..+++.&gt;-.&lt;&lt;+[&gt;[+&gt;+]&gt;&gt;]&lt;--------------.&gt;&gt;.+++.------.--------.&gt;+.&gt;+.
+</pre>
+<p>Short program printing Hello, World! by primo from <a rel="nofollow" class="external free" href="http://codegolf.stackexchange.com/a/68494/6691">http://codegolf.stackexchange.com/a/68494/6691</a>.  This program needs four cells to the left of the starting point (so standard scoring would give it an adjustment of four instructions and four ticks) and requires wrapping byte sized cells.
+</p>
+<pre>--&lt;-&lt;&lt;+[+[&lt;+&gt;---&gt;-&gt;-&gt;-&lt;&lt;&lt;]&gt;]&lt;&lt;--.&lt;++++++.&lt;&lt;-..&lt;&lt;.&lt;+.&gt;&gt;.&gt;&gt;.&lt;&lt;&lt;.+++.&gt;&gt;.&gt;&gt;-.&lt;&lt;&lt;+.
+</pre>
+<p>Currently, the shortest known program printing Hello, World! is written by KSab from <a rel="nofollow" class="external free" href="https://codegolf.stackexchange.com/a/163590/59487">https://codegolf.stackexchange.com/a/163590/59487</a>:
+</p>
+<pre>+[--&gt;-[&gt;&gt;+&gt;-----&lt;&lt;]&lt;--&lt;---]&gt;-.&gt;&gt;&gt;+.&gt;&gt;..+++[.&gt;]&lt;&lt;&lt;&lt;.+++.------.&lt;&lt;-.&gt;&gt;&gt;&gt;+.
+</pre>
+<h3><span class="mw-headline" id="Move_value">Move value</span></h3>
+<p>This code piece moves the value of the current cell (<i>cell0</i>) two cells to the right (<i>cell2</i>):
+</p>
+<pre>&gt;&gt;[-]&lt;&lt;[-&gt;&gt;+&lt;&lt;]
+</pre>
+<p>With indentation and comments the same code looks like this:
+</p>
+<pre>Code:   Pseudo code:
+&gt;&gt;      Move the pointer to cell2
+[-]     Set cell2 to 0 
+&lt;&lt;      Move the pointer back to cell0
+[       While cell0 is not 0
+  -       Subtract 1 from cell0
+  &gt;&gt;      Move the pointer to cell2
+  +       Add 1 to cell2
+  &lt;&lt;      Move the pointer back to cell0
+]       End while
+</pre>
+<h3><span class="mw-headline" id="Cat">Cat</span></h3>
+<p>A <a href="/wiki/Cat_program" title="Cat program">cat program</a> writes its input directly to its output. As there is not a standard way to handle EOF in brainfuck, there are four versions of the program below and a non-termiating one, labelled by how they match common implementations of the interpreter. (see <a href="#Implementation_issues"> Implementation issues</a>).
+</p><p><b>EOF returns 0:</b>
+</p>
+<pre>,[.,]
+</pre>
+<p><b>EOF returns -1:</b>
+</p>
+<pre>,+[-.,+]
+</pre>
+<p><b>No change on EOF, or EOF returns 0:</b>
+</p>
+<pre>,[.[-],]
+</pre>
+<p><b>No change on EOF, or EOF returns -1:</b>
+</p>
+<pre>,+[-.[-]-,+]
+</pre>
+<p><b>Never terminates:</b>
+</p>
+<pre>+[&gt;,.&lt;]
+</pre>
+<h3><span class="mw-headline" id="Cell_Size">Cell Size</span></h3>
+<p>This program outputs the cell width of the interpreter: 
+</p>
+<pre>Calculate the value 256 and test if it's zero
+If the interpreter errors on overflow this is where it'll happen
+++++++++[&gt;++++++++&lt;-]&gt;[&lt;++++&gt;-]
++&lt;[&gt;-&lt;
+    Not zero so multiply by 256 again to get 65536
+    [&gt;++++&lt;-]&gt;[&lt;++++++++&gt;-]&lt;[&gt;++++++++&lt;-]
+    +&gt;[&gt;
+        # Print "32"
+        ++++++++++[&gt;+++++&lt;-]&gt;+.-.[-]&lt;
+    &lt;[-]&lt;-&gt;] &lt;[&gt;&gt;
+        # Print "16"
+        +++++++[&gt;+++++++&lt;-]&gt;.+++++.[-]&lt;
+&lt;&lt;-]] &gt;[&gt;
+    # Print "8"
+    ++++++++[&gt;+++++++&lt;-]&gt;.[-]&lt;
+&lt;-]&lt;
+# Print " bit cells\n"
++++++++++++[&gt;+++&gt;+++++++++&gt;+++++++++&gt;+&lt;&lt;&lt;&lt;-]&gt;-.&gt;-.+++++++.+++++++++++.&lt;.
+&gt;&gt;.++.+++++++..&lt;-.&gt;&gt;-
+Clean up used cells.
+[[-]&lt;]
+</pre>
+<h3><span class="mw-headline" id="Looping_counter"><a href="/wiki/Looping_counter" title="Looping counter">Looping counter</a></span></h3>
+<pre>&gt;&gt;++++++++++[[-&gt;+&lt;&lt;++++&gt;]&lt;++[&lt;]&gt;[.&gt;]&gt;.]
+</pre>
+<h3><span id="Truth-machine_.28kinda.29"></span><span class="mw-headline" id="Truth-machine_(kinda)"><a href="/wiki/Truth-machine" title="Truth-machine">Truth-machine (kinda)</a></span></h3>
+<p><b>Without explanation</b>
+</p>
+<pre>+++++++++&gt;&gt;,&lt;&lt;[-&gt;+++++&lt;]&gt;+++[&gt;-&lt;-]&gt;[.]
+</pre>
+<p><b>With explanation</b>
+</p>
+<pre>+++++++++ Adds 9 to the first cell for multiplication
+&gt;&gt;, set's the input to the third cell
+&lt;&lt;[-&gt;+++++&lt;] goes back to the third cell and does multiplication to the cell next to it
+&gt;+++ add 3 to the second cell
+[&gt;-&lt;-] Does subtraction on the second and the third cell
+&gt;[.] If the cell is 0, it outputs 0 (as in ASCII value 0). If it's not 0. prints 1 (as in ASCII value 1) or higher
+</pre>
+<h2><span class="mw-headline" id="Self-interpreters">Self-interpreters</span></h2>
+<p>Writing a self-interpreter in brainfuck is not a simple task, yet, several self-interpreters have been written throughout the years.
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://www.iwriteiam.nl/Ha_bf_inter.html">by Frans Faase</a> - Perhaps the first one.</li>
+<li><a rel="nofollow" class="external text" href="http://www.iwriteiam.nl/Ha_vs_bf_inter.html">by NYYRIKKI</a></li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20170517143215/http://www.brain------------------------------------------------------fuck.com/programs/kbfi.b">by Keymaker</a> <i>(from the <a href="https://en.wikipedia.org/wiki/Wayback_Machine" class="extiw" title="wikipedia:Wayback Machine">Wayback Machine</a>; retrieved on 17 May 2017)</i> - Designed in the strictest 8-bit, non-wrapping, EOF = no change (EOF 0 works too) environment. The program emulates unbound cell size for cells (the program +[+] is valid and never ends) -- not really a brainfuck feature but it's there anyway -- and of course all the brainfuck programs written for the 8-bit non-wrapping environment work as supposed to. Supports infinite/unbound number of cells and nested loops.</li>
+<li><a rel="nofollow" class="external text" href="http://www.hevanet.com/cristofd/brainfuck/dbfi.b">by Daniel B Cristofani</a> - The shortest; see also <a href="/wiki/Dbfi" title="Dbfi">dbfi</a>
+<ul><li><a rel="nofollow" class="external text" href="http://github.com/bf-enterprise-solutions/meta.bf">meta.bf by Brainfuck Enterprise Solutions</a> - designed as a drop-in embeddable meta-interpeter to add DBFI scripting to any BF program.</li></ul></li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20210225021709/homepages.xnet.co.nz/~clive/eigenratios/cgbfi2.b">by Clive Gifford</a> <i>(from the <a href="https://en.wikipedia.org/wiki/Wayback_Machine" class="extiw" title="wikipedia:Wayback Machine">Wayback Machine</a>; retrieved on 25 February 2021)</i> - The fastest</li>
+<li><a rel="nofollow" class="external text" href="https://github.com/ludamad/bf-self-interpreter">by Adam Domurad</a> - Interprets Brainfuck code from the input until a&#160;%, then reads remaining input as input for the interpreted program. Comments are allowed, and up to 256-depth nested loops</li>
+<li><a rel="nofollow" class="external text" href="https://github.com/VilgotanL/Bf-Transpilers/blob/master/bf_self_interpreter.bf">by VilgotanL</a> - Originally written in <a href="/wiki/VBF" title="VBF">VBF</a> and transpiled to brainfuck, designed in 8-bit wrapping brainfuck, supports infinite nested loop depth, errors, assumes zero or no-change on eof, uses an optional&#160;! in the input to separate the program and the input.</li>
+<li><a href="/wiki/Mbfi" title="Mbfi">by Ørjan Johansen</a> - Designed for achieving a calculable <a href="/wiki/Eigenratio" title="Eigenratio">eigenratio</a>.</li></ul>
+<h2><span class="mw-headline" id="Computational_class">Computational class</span></h2>
+<p>When the array is <a href="/wiki/Unbounded" class="mw-redirect" title="Unbounded">unbounded</a>, or when the array is at least three cells long and can store unbounded values, brainfuck is <a href="/wiki/Turing-complete" title="Turing-complete">Turing-complete</a>, meaning that it is in the same <a href="/wiki/Computational_class" title="Computational class">computational class</a> as <a href="/wiki/Universal_Turing_machine" class="mw-redirect" title="Universal Turing machine">universal Turing machines</a>.  This, plus its dearth of commands, makes it a canonical example of a <a href="/wiki/Turing_tarpit" title="Turing tarpit">Turing tarpit</a>.
+</p><p>This can be shown in a number of ways and with various restrictions on the brainfuck program and/or interpreter.  The following formulations require the array to be unbounded, but allow the value in each cell to be bounded:
+</p>
+<ul><li>Daniel B Cristofani's <a rel="nofollow" class="external text" href="http://www.hevanet.com/cristofd/brainfuck/utm.b">implementation of a universal Turing machine in brainfuck</a> provides a proof by <a href="/wiki/Computational_class#Simulation" title="Computational class">simulation</a>.</li>
+<li>Fairly trivial <a href="/wiki/Computational_class#Reduction" title="Computational class">reductions</a> can also be drawn between brainfuck and <a href="/wiki/P%27%27" class="mw-redirect" title="P&#39;&#39;">P''</a>, which has been formally shown to be Turing-complete.</li>
+<li><a href="/wiki/User:Keymaker" title="User:Keymaker">User:Keymaker</a> <a href="/wiki/Brainfuck_minus_-" title="Brainfuck minus -">has shown that</a> brainfuck is Turing-complete even if you can only adjust cells by incrementing 0s to 1s.
+<ul><li><a href="/wiki/%C3%98rjan_Johansen" title="Ørjan Johansen">Ørjan Johansen</a> <a href="/wiki/Brainfuck_minus_-#Depth_two_nesting" title="Brainfuck minus -">has added</a> the further restriction that loops can only be nested two levels deep.</li></ul></li></ul>
+<p>Other formulations allow the array to be bounded, but require that the value in each cell be unbounded:
+</p>
+<ul><li>Frans Faase gives a procedure for translating 5-register Universal Register Machines into brainfuck programs using five cells <a rel="nofollow" class="external autonumber" href="http://www.iwriteiam.nl/Ha_bf_Turing.html">[1]</a>.</li>
+<li><a href="/wiki/%C3%98rjan_Johansen" title="Ørjan Johansen">Ørjan Johansen</a> has made a conversion from iterated <a href="/wiki/Collatz_function" title="Collatz function">Collatz functions</a> to 3-cell brainfuck <a href="/wiki/Collatz_function#Reduction_to_3-cell_brainfuck" title="Collatz function">(see that page for details)</a>.</li>
+<li><a href="/wiki/User:Ais523" title="User:Ais523">User:ais523</a> <a rel="nofollow" class="external text" href="https://cs.stackexchange.com/questions/102363/how-many-pairs-of-brackets-in-bf-be-sufficient-enough-to-make-it-turing-complete/102369#102369">has proved</a> that <a href="/wiki/The_Waterfall_Model" title="The Waterfall Model">The Waterfall Model</a> can be transformed into brainfuck with only three pairs of loop brackets in the whole program.  The number of cells needed to make this Turing-complete is theoretically bounded (based on the number of waterclocks needed for TWM), but is not precisely known.
+<ul><li>Ørjan Johansen <a rel="nofollow" class="external text" href="https://cs.stackexchange.com/questions/102363/how-many-pairs-of-brackets-in-bf-be-sufficient-enough-to-make-it-turing-complete/102500#102500">improved</a> this construction to use only two pairs of loop brackets in the whole program. User:ais523 implemented the resulting construction, giving <a rel="nofollow" class="external text" href="http://nethack4.org/esolangs/2bbf.pl">a compiler from The Waterfall Model (without output, and with only one halt counter) to two-loop brainfuck</a>. The algorithm used always uses less than 48<i>n</i>² cells (where <i>n</i> is the number of counters), and less than 24<i>n</i>² cells if the number of counters is 1 less than half a prime number.</li></ul></li></ul>
+<p>And still others require both the array and the value in each cell to be unbounded:
+</p>
+<ul><li>Frans Faase gives <a rel="nofollow" class="external text" href="http://www.iwriteiam.nl/Ha_bf_Turing.html">a procedure for transforming Turing machines into brainfuck programs</a> which constitutes a proof by translation.</li></ul>
+<h2><span class="mw-headline" id="Algorithms">Algorithms</span></h2>
+<p>See <a href="/wiki/Brainfuck_algorithms" title="Brainfuck algorithms">Brainfuck algorithms</a>, <a href="/wiki/Brainfuck_constants" title="Brainfuck constants">Brainfuck constants</a>.
+</p>
+<h3><span class="mw-headline" id="Simple_instruction_examples">Simple instruction examples</span></h3>
+<ul><li><code>[+]</code> or <code>[-]</code> can be used to set the value to 0</li>
+<li>After having set it to 0 you can use repetions of <code>+</code> or <code>-</code> to get to any number you want</li>
+<li>We can check if the value in the pointers location is not a specific constant, by subtracting that amount or adding 255-that amount and than using the execute if not 0 loop</li>
+<li>We can execute a forever executing loop by making sure the value at the pointer won't be 0 when <code>]</code> is reached.</li>
+<li>If a cell only holds the values 0 and 255 (which will be interpreted as FALSE and TRUE in conditionals), we can use <code>+</code> which makes it become 1 and 0 (TRUE and FALSE in conditionals), so <code>+</code> can negate the truth values, and than to negate that code you can use <code>-</code></li></ul>
+<h2><span class="mw-headline" id="Extensions">Extensions</span></h2>
+<p>Some implementations also recognize the following symbols as meaningful:
+</p>
+<pre># Start debugger (e.g. Print contents of first few memory cells)
+! Separate code from input
+</pre>
+<p>The debug command # comes from brainfuck's original interpreter, written by Urban Müller. Because brainfuck programs have only one input source, brainfuck interpreters written in brainfuck (or other languages without file I/O) require&#160;! to be able to distinguish a program's code from the input it is intended to process.
+</p><p>As all characters other than <code>&gt;&lt;+-.,[]</code> should be considered comments and ignored, it is normal for an interpreter to have a method of disabling these extensions if required. This disabling may be automatic for '!' based on such things as if there is currently an open loop and/or if the program is being read from the 'standard input'.
+</p><p>As these commands are non-standard some interpreters use different codes for these functions.
+</p><p>Probably the next most frequently implemented extension is a command to comment out the rest of the line, however, experienced brainfuck programmers generally consider this useless mostly due to the existence of the <a href="/wiki/Brainfuck_algorithms#Header_comment" title="Brainfuck algorithms">header comments technique</a>.
+</p>
+<h2><span class="mw-headline" id="Conventions">Conventions</span></h2>
+<p>The following summarizes the common conventions for making a brainfuck interpreter or compiler. It can be seen as a general specification for brainfuck, commonly accepted amongst the brainfuck community as a minimal base.
+It attempts to solve implementation issues by standardizing them.
+</p>
+<h3><span class="mw-headline" id="Memory">Memory</span></h3>
+<ul><li>Memory should normally consist of 8 bit cells, a very fast compiler may use 32bit or larger cells. Floating point cells are strongly discouraged as are cells that are not a power of two in size. "Bignum" cells are allowed but should be an option.</li>
+<li>Memory should wrap on overflow and underflow. (This also includes the <code>[-]</code> function with "bignum" cells).</li>
+<li>Negative memory addresses should NOT be assumed to exist, however, an interpreter may provide some. (An optimising interpreter may be forced to)</li>
+<li>Memory should consist of at least 30000 cells, some existing brainfuck programs do need more so this should be configurable or unbounded.</li></ul>
+<h3><span class="mw-headline" id="Input_and_Output">Input and Output</span></h3>
+<h4><span class="mw-headline" id="Newlines">Newlines</span></h4>
+<p>The input should be "line buffered" until the user enters a newline at which point the program receives the edited line. 
+</p>
+<ul><li>OS newlines should be converted to 10 for input.</li>
+<li>10s should be converted to OS newlines for output.</li></ul>
+<p>Note that most programming platforms and programming languages already do this for you, which might make converting 10s to OS newlines redundant.
+</p>
+<h4><span class="mw-headline" id="EOF">EOF</span></h4>
+<p>An interpreter should normally either return Zero or leave the cell unchanged on EOF.
+</p><p>The Zero option matches the brainfuck language in that the only conditional in brainfuck is a comparison with zero. Using this form, in theory, allows slightly shorter code.  For eight bit cells the "leave the cell untouched" matches the C/Unix read(2) system call in that the character memory will be left unchanged on EOF. For Unix the EOF (or error) condition is signalled by the return value, which is lost with BF. If the interpreter's cells are more than eight bits the "unchanged cell" can safely handle binary data. If the cells are eight bit or the interpreter sets the cells to zero on EOF binary data cannot be handled.
+</p><p>For a brainfuck program this means that ASCII data+EOF should be read using a <code>[-],</code> construct (or similar). Binary input should, probably, be read using a construct of the form <code>[-]-,</code>. This requires that input bytes are in the range 0..255 when the cell size exceeds eight bits.
+</p><p>Note: It is strongly recommended that an interpreter be configurable to all three normal form of EOF (Zero, minus one and unchanged).
+</p>
+<h4><span class="mw-headline" id="Character_set">Character set</span></h4>
+<p>The original brainfuck interpreter used the native character set of the host, ISO8859-1. Most modern brainfuck interpreters do the same, so this means that many current implementations will used UTF-8 as the character set and have access to ANSI control sequences. The majority of brainfuck programs only use ASCII with newlines, but the few that use extended sets follow the UTF-8+Ansi pattern.
+</p>
+<h4><span id="GUI_and_Other_I.2FO"></span><span class="mw-headline" id="GUI_and_Other_I/O">GUI and Other I/O</span></h4>
+<h5><span id="GUI_Pong_.2F_Simple_UNIX_Shell"></span><span class="mw-headline" id="GUI_Pong_/_Simple_UNIX_Shell">GUI Pong / Simple UNIX Shell</span></h5>
+<p>Using a <a rel="nofollow" class="external text" href="https://github.com/lestrozi/pipevm">Virtual Machine controlled via stdin/out</a>, here's a <a rel="nofollow" class="external text" href="https://github.com/lestrozi/pipevm/blob/main/tests/bfponggen.py">Pong implementation</a> and <a rel="nofollow" class="external text" href="https://github.com/lestrozi/pipevm/blob/main/tests/sh.bf">a simple UNIX shell implementation (that actually controls a real filesystem)</a>
+</p>
+<h5><span class="mw-headline" id="PPM_file_output">PPM file output</span></h5>
+<p>For a more trivial output the <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Netpbm">PPM, PGM and PPM formats or Netpbm</a> can be generated in a simple format as plain (ASCII) text.
+</p><p><span class="mw-default-size" typeof="mw:File"><a href="/wiki/File:Pong.gif" class="mw-file-description"><img src="/w/images/a/af/Pong.gif" decoding="async" width="318" height="238" class="mw-file-element" /></a></span>
+<span class="mw-default-size" typeof="mw:File"><a href="/wiki/File:Shell.gif" class="mw-file-description"><img src="/w/images/thumb/6/63/Shell.gif/952px-Shell.gif" decoding="async" width="952" height="500" class="mw-file-element" srcset="/w/images/6/63/Shell.gif 1.5x" /></a></span>
+<span class="mw-default-size" typeof="mw:File"><a href="/wiki/File:Mandelbrot-mono-bf.png" class="mw-file-description"><img src="/w/images/thumb/a/a3/Mandelbrot-mono-bf.png/317px-Mandelbrot-mono-bf.png" decoding="async" width="317" height="238" class="mw-file-element" srcset="/w/images/thumb/a/a3/Mandelbrot-mono-bf.png/476px-Mandelbrot-mono-bf.png 1.5x, /w/images/thumb/a/a3/Mandelbrot-mono-bf.png/635px-Mandelbrot-mono-bf.png 2x" /></a></span>
+</p>
+<h3><span class="mw-headline" id="Implementation_issues">Implementation issues</span></h3>
+<p>Brainfuck leaves a lot of things up to the implementation to decide, such as array and cell size, and what happens when EOF is read.
+</p>
+<h4><span class="mw-headline" id="Memory_and_wrapping">Memory and wrapping</span></h4>
+<p>The size of the cells and the cell array varies a lot in different implementations. A usual implementation will have either 8bit or 32bit cells with 30000 cells (in the positive direction). For Turing completeness either the number of cells must be unbounded or (at least) three unbounded cells are required, the former is usually assumed.
+</p><p>Urban Müller's compiler used an array of 30000 cells 8bit cells, while the interpreter only allowed 100 (of 5000) to be used. As the compiler was written in assembler there is no indication as to whether the cells are to be assumed to be signed or unsigned and the overflow semantics are of the usual twos complement (or unsigned byte) wrapping form. The interpreter uses signed 8bit characters (-128 to 127 range).
+</p><p>Other interpreters normally use a similar layout, however, some allow cells to the left of the start position or use different allowed ranges of cell values. Some limit the cells to only positive values or other reduced ranges, others allow a larger range including 'floating point' (which would usually be in effect a 53bit integer without wrapping) or even completely unbounded integers.  
+</p><p>Note, that it's not possible for a brainfuck program to determine if its integers are officially signed or unsigned unless they are also non-wrapping. If the cells don't wrap then the loops [-] and [+] used after an number in the opposite direction will cause a crash (ie: an exception or a hang). Most optimisers will therefore assume these sequences set a zero even with unbounded integers.
+</p><p>Even with wrapping cells code can be written that depends on the cell size for example <a href="/wiki/Brainfuck_bitwidth_conversions#Multiple_conversions" title="Brainfuck bitwidth conversions">Brainfuck bitwidth conversions</a> or the code below (which only works correctly with 8bits).
+</p>
+<pre><font color="#c000c0">+</font><font color="#804000">[[</font><font color="#c000c0">-</font><font color="#008000">&gt;</font><font color="#804000">]</font><font color="#c000c0">-</font><font color="#804000">[</font><font color="#c000c0">-</font><font color="#008000">&lt;</font><font color="#804000">]</font><font color="#008000">&gt;</font><font color="#c000c0">-</font><font color="#804000">]</font><font color="#008000">&gt;</font><font color="#c00000">.</font><font color="#008000">&gt;&gt;&gt;&gt;</font><font color="#c00000">.</font><font color="#008000">&lt;&lt;&lt;&lt;</font><font color="#c000c0">-</font><font color="#c00000">.</font><font color="#008000">&gt;&gt;</font><font color="#c000c0">-</font><font color="#c00000">.</font><font color="#008000">&gt;</font><font color="#c00000">.</font><font color="#008000">&lt;&lt;</font><font color="#c00000">.</font><font color="#008000">&gt;&gt;&gt;&gt;</font><font color="#c000c0">-</font><font color="#c00000">.</font><font color="#008000">&lt;&lt;&lt;&lt;&lt;</font><font color="#c000c0">++</font><font color="#c00000">.</font><font color="#008000">&gt;&gt;</font><font color="#c000c0">++</font><font color="#c00000">.</font>
+</pre>
+<h4><span class="mw-headline" id="Newlines_2">Newlines</span></h4>
+<p>The vast majority of brainfuck programs, following Urban Müller's original example programs, use 10 as newline on both input and output; this is also the convention used by Unix-based operating systems, including Linux and Mac OS X. Some other operating systems use different conventions for newline, and may use different conventions on input and on output, and different conventions in different programming environments (e.g. C versus assembly language). Several solutions to the problem are possible:
+</p>
+<ul><li>Write brainfuck programs to accept multiple linefeed conventions. (Possible, though clunky, on input; not generally possible on output.)</li>
+<li>Write many versions of each brainfuck program, one for each programming environment. (Possible, but very unpleasant.)</li>
+<li>Forget portability and write programs for whatever implementation you are using. (A fairly common approach. May make it hard to share programs if your interpreter doesn't use 10 as newline.)</li>
+<li>Write brainfuck interpreters and compilers to translate newline to 10 on input, and 10 to newline on output, in environments where that is not already the case. (Easy and helpful, but often overlooked. Also, may break the few brainfuck programs that do binary i/o; so newline translation should ideally be able to be turned off with a switch.)</li>
+<li>Instead of having the user hit the "Enter" key, expect the user to do something else to give a 10 to the interpreter; e.g., the user can feed the input from a file which uses 10s to end the lines, rather than from the keyboard. Send the output to a file too. (Possible but clunky.)</li></ul>
+<p>A few implementations allow the input to be "raw" and sometimes non-blocking. If the input is in "raw" mode it is not line buffered and key presses are passed to the program immediately. Non-blocking means that if there isn't a character available either immediately or after a short delay (for example 1/10 of a second) the input command will return an EOF indication.  
+</p>
+<h4><span class="mw-headline" id="EOF_2">EOF</span></h4>
+<p>EOF is a controversial issue. Many implementations return 0, some return -1, and several notable brainfuck programmers suggest that on EOF the memory cell should be left as-is, without modification. In the original distribution the compiler left the cell unchanged, while the interpreter used the EOF from C which, strictly speaking, could be any negative integer, but which usually is -1 (which, in the case of byte-sized cells, ends up as 255).
+</p>
+<h2><span class="mw-headline" id="Related_languages">Related languages</span></h2>
+<p>See also <a href="/wiki/Brainfuck_extensions" title="Brainfuck extensions">Brainfuck extensions</a>.
+</p><p>In publishing the formal programming language <a href="/wiki/P%27%27" class="mw-redirect" title="P&#39;&#39;">P''</a> in 1964, Corrado Böhm used six symbols <i>precisely</i> equivalent to the brainfuck commands <code>+</code>, <code>-</code>, <code>&lt;</code>, <code>&gt;</code>, <code>[</code>, and <code>]</code>, and provided an explicit program for each of the basic functions that together serve to compute any partial recursive function. (So in a very real sense, the first "brainfuck" programs appear in Bohm's 1964 paper.)  
+</p><p>Many people at various times have tried to extend brainfuck to make it easier to program in, but such efforts have been compared to trying to make a luxury car by gluing parts onto a skateboard.   Other people have been interested in variations of the language for theoretical purposes, pedagogical applications, etc.  The sheer proliferation of languages equivalent to and derived from brainfuck led Chris Pressey to dub it "the <a href="https://en.wikipedia.org/wiki/twelve-bar_blues" class="extiw" title="wikipedia:twelve-bar blues">twelve-bar blues</a> of esolang".  Some of the more interesting variants:
+</p>
+<ul><li><a href="/wiki/Pbrain" title="Pbrain">pbrain</a> is a brainfuck extension that supports procedures.</li>
+<li><a href="/wiki/Cbrain" title="Cbrain">cbrain</a> is a derivative of pbrain as implemented in pbrain.c, adding integers and operators.</li>
+<li><a href="/wiki/RUM" title="RUM">RUM</a> stands for "bRainfUck iMproved." and adds procedures, strings and repetition.</li>
+<li><a href="/wiki/Toadskin" title="Toadskin">Toadskin</a> is a brainfuck variant that supports procedures, but uses a stack instead of an array.</li>
+<li><a href="/wiki/Brainfork" title="Brainfork">Brainfork</a> adds a Y command to fork the current thread.</li>
+<li><a href="/wiki/Fm" title="Fm">Fm</a> edits a string on alphabet {0,1,...,m-1} (m &gt;= 2).</li>
+<li><a href="/wiki/FRAK" title="FRAK">FRAK</a> assembles instructions to brainfuck code.</li>
+<li><a href="/wiki/FukYorBrane" title="FukYorBrane">FukYorBrane</a> and <a href="/wiki/BF_Joust" title="BF Joust">BF Joust</a> pit two Brainfuck-like programs against each other, as in Core War (see <a href="/wiki/Redcode" title="Redcode">Redcode</a>).</li>
+<li><a href="/wiki/Smallfuck" title="Smallfuck">Smallfuck</a> operates only on bits and has no input- or output-commands.</li>
+<li><a href="/wiki/Bitter" title="Bitter">Bitter</a> one-bit memory cells, four commands, equivalent to <a href="/wiki/Smallfuck" title="Smallfuck">Smallfuck</a> under certain circumstances</li>
+<li><a href="/wiki/Spoon" title="Spoon">Spoon</a> uses a Huffman coded set of instructions corresponding to Brainfuck's commands.</li>
+<li><a href="/wiki/BrainDuino" title="BrainDuino">BrainDuino</a> BF port on <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Arduino">Arduino</a> HW platform (based on Atmel's ATMega). Extended by two special I/O operations and special overflow protection.</li>
+<li><a href="/wiki/Puzzlang" title="Puzzlang">Puzzlang</a> turns every program into an exercise in patience and logic puzzle skills. The lone X operator becomes any of brainfuck's instructions, depending on the surrounding characters.</li>
+<li><a href="/wiki/Alarm_Clock_Radio" title="Alarm Clock Radio">Alarm Clock Radio</a> throws away the instructions to decrement the memory pointer or memory value.</li>
+<li><a href="/wiki/Portal" title="Portal">Portal</a> and <a href="/wiki/Portal_2" title="Portal 2">Portal 2</a> allows code-level pointer manipulation and theoretically implements the Wang-B Machine.</li>
+<li><a href="/wiki/Tbf" title="Tbf">tbf</a> is a language that can be compiled to Brainfuck. It includes variables, strings, macros and improved loops.</li>
+<li><a href="/wiki/Grin" title="Grin">Grin</a> adds more efficient arithmetic functions to Brainfuck.</li>
+<li><a href="/wiki/TinyBF" title="TinyBF">tinyBF</a> and its variant <a href="/wiki/RISBF" title="RISBF">RISBF</a> are brainfuck equivalents with only 4 opcodes.</li>
+<li><a href="/wiki/Grawlix" title="Grawlix">Grawlix</a> adds stack operations, decimal I/O, another loop structure, functions and multiply/divide by two.</li>
+<li><a href="/wiki/Brainfuckconsole74" title="Brainfuckconsole74">brainfuckconsole74</a> extends brainfuck to a fantasy console like pico8. it renders first 256 cells as 16x16 pixels, reads keyboard&amp;mouse-input and plays sound.</li>
+<li><a href="/wiki/Motherf" title="Motherf">Motherf</a> adds a variety of useful commands and principles like macros, stack, functions, convenient I/O, booleans and simulation of other types.</li>
+<li><a href="/wiki/BFFuck" title="BFFuck">BFFuck</a> and <a href="/wiki/Headache" title="Headache">Headache</a> are high-level languages that compile to brainfuck.</li>
+<li><a href="/wiki/Brainbits" title="Brainbits">brainbits</a> is a brainfuck derivative that uses bit cells.</li></ul>
+<p>Some other funny variants:
+</p>
+<ul><li><a href="/wiki/Ook!" title="Ook!">Ook!</a> works exactly like brainfuck, except the syntax is in Orangutan.</li>
+<li><a href="/wiki/Blub" title="Blub">Blub</a> is the same for fish.</li>
+<li><a href="/wiki/Brainloller" title="Brainloller">Brainloller</a> has the same commands as brainfuck, except they're read from a png image.</li>
+<li><a href="/wiki/COW" title="COW">COW</a> is the bovine version of "Ook!", except cows are slow to react so the loops are different.</li>
+<li><a href="/wiki/Microwave" title="Microwave">Microwave</a> is inspired by COW and Ook!, except it uses only microwave sounds.</li>
+<li><a href="/wiki/Pi" title="Pi">Pi</a> obfuscates Brainfuck instructions in random errors in pi digits.</li></ul>
+<p>Some languages inspired by brainfuck, but with more major differences:
+</p>
+<ul><li><a href="/wiki/Aura" title="Aura">Aura</a> requires data to be stored in the code space.</li>
+<li><a href="/wiki/PATH" title="PATH">PATH</a> and <a href="/wiki/SNUSP" title="SNUSP">SNUSP</a> attempt to combine brainfuck with <a href="/wiki/Befunge" title="Befunge">Befunge</a>.</li>
+<li><a href="/wiki/Wierd" title="Wierd">Wierd</a> arose out of an earlier attempt to combine brainfuck with Befunge.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<ul><li><a href="/wiki/Brainfuck_implementations" title="Brainfuck implementations">Brainfuck implementations</a></li>
+<li><a href="/wiki/Brainfuck_algorithms" title="Brainfuck algorithms">Brainfuck algorithms</a></li>
+<li><a href="/wiki/Brainfuck_constants" title="Brainfuck constants">Brainfuck constants</a></li>
+<li><a href="/wiki/Brainfuck_code_generation" title="Brainfuck code generation">Brainfuck code generation</a></li>
+<li><a href="/wiki/Asm2bf" title="Asm2bf">asm2bf</a> - the only true brainfuck assembler.</li>
+<li><a href="/wiki/BFBASIC" title="BFBASIC">BFBASIC</a>, a Basic to brainfuck compiler</li>
+<li><a href="/wiki/FBP" title="FBP">FBP</a>, a high level language to brainfuck compiler</li>
+<li><a href="/wiki/Binary_lambda_calculus" title="Binary lambda calculus">Binary lambda calculus</a>, featuring an 829 bit (under 104 bytes) Brainfuck interpreter</li>
+<li><a href="/wiki/Brainfuck_bitwidth_conversions" title="Brainfuck bitwidth conversions">Brainfuck bitwidth conversions</a></li>
+<li><a href="/wiki/BF_instruction_minimalization" title="BF instruction minimalization">BF instruction minimalization</a></li>
+<li><a href="/wiki/Trivial_brainfuck_substitution" title="Trivial brainfuck substitution">Trivial brainfuck substitution</a> and the <a rel="nofollow" class="external text" href="https://esolangs.org/wiki/Special:WhatLinksHere/Trivial_brainfuck_substitution">list of them</a>.</li>
+<li><a href="/wiki/BFO" title="BFO">BFO</a>, the first known brainfuck to brainfuck optimizer and compressor</li>
+<li><a href="/wiki/Category:Brainfuck" title="Category:Brainfuck">Category:Brainfuck</a>, a collection of brainfuck related articles on this wiki</li>
+<li><a href="/wiki/Brainfuck_minus_-" title="Brainfuck minus -">Brainfuck minus -</a>, showing that ordinary brainfuck without the '-' instruction and cell range of 0-1 (without cell-wrapping!) is still Turing-complete</li>
+<li><a href="/wiki/Category:Brainfuck_derivatives" title="Category:Brainfuck derivatives">Category:Brainfuck derivatives</a>, languages based on brainfuck</li>
+<li><a href="/wiki/Shorten_your_Brainfuck_code" title="Shorten your Brainfuck code">Shorten your Brainfuck code</a></li>
+<li><a href="/wiki/BF_busy_beaver" title="BF busy beaver">BF busy beaver</a></li>
+<li><a href="/wiki/EsoInterpreters" title="EsoInterpreters">EsoInterpreters</a>, featuring several brainfuck interpreters written in other esoteric languages</li>
+<li>(is this project alive?) <a href="/wiki/C2BF" title="C2BF">C2BF</a>, a partially implemented C to brainfuck compiler</li></ul>
+<h2><span class="mw-headline" id="External_resources">External resources</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://www.muppetlabs.com/~breadbox/bf/">Brian Raiter's site</a> contains a summary, an informal standards guide, and a couple of interesting programs.</li>
+<li><a rel="nofollow" class="external text" href="http://www.iwriteiam.nl/Ha_BF.html">Frans Faase's site</a> includes a proof that brainfuck is Turing-complete.</li>
+<li><a rel="nofollow" class="external text" href="http://www.hevanet.com/cristofd/brainfuck/">some brainfuck fluff</a> contains many interesting programs, a solid interpreter, and suggestions for programmers and implementors, among other things.</li>
+<li><a rel="nofollow" class="external text" href="http://esoteric.sange.fi/brainfuck/">The Brainfuck Archive</a> has a large selection of programs, implementations and utilities.</li>
+<li><a rel="nofollow" class="external text" href="http://sourceforge.net/forum/forum.php?forum_id=201037">Brainfuck Golf</a> is a contest with the goal of writing a shortest program to do a certain task; see <a href="/wiki/Golf" title="Golf">golf</a>.</li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20170913173425/http://www.brain------------------------------------------------------fuck.com/">brain------------------------------------------------------fuck.com</a> <i>(from the <a href="https://en.wikipedia.org/wiki/Wayback_Machine" class="extiw" title="wikipedia:Wayback Machine">Wayback Machine</a>; retrieved on 13 September 2017)</i> features some interesting brainfuck programs.</li>
+<li><a rel="nofollow" class="external text" href="http://alx2002.free.fr/esoterism/brainfuck/brainfuck_en.html">brainfuck tutorial</a></li>
+<li><a rel="nofollow" class="external text" href="http://jonripley.com/brainfuck/executable.html">Making executable BF programs</a> contains information on how to make executable brainfuck programs.</li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20111031121638/http://jonripley.com/i-fiction/games/LostKingdomBF.html">The Lost Kingdom</a> <i>(from the <a href="https://en.wikipedia.org/wiki/Wayback_Machine" class="extiw" title="wikipedia:Wayback Machine">Wayback Machine</a>; retrieved on 31 October 2011)</i>, an adventure game in 2 megabytes of BF code generated with <a href="/wiki/BFBASIC" title="BFBASIC">BFBASIC</a>.
+<ul><li>The above <a rel="nofollow" class="external text" href="http://rdebath.github.io/LostKingdom/">converted to Javascript</a>.</li></ul></li>
+<li><a rel="nofollow" class="external text" href="http://www.cs.cmu.edu/~dst/DeCSS/Gallery/css-brainfuck.txt">Brainfuck CSS descrambler</a> (with comments), from the <a rel="nofollow" class="external text" href="http://www.cs.cmu.edu/~dst/DeCSS/Gallery/">Gallery of CSS Descramblers</a>.</li>
+<li><a rel="nofollow" class="external text" href="https://github.com/graue/esofiles/tree/master/brainfuck/">Brainfuck</a> in <a href="/wiki/The_Esoteric_File_Archive" title="The Esoteric File Archive">the Esoteric File Archive</a>, including <a rel="nofollow" class="external text" href="https://github.com/graue/esofiles/tree/master/brainfuck/impl/">implementations</a>, <a rel="nofollow" class="external text" href="https://github.com/graue/esofiles/tree/master/brainfuck/src/">programs</a> and <a rel="nofollow" class="external text" href="https://github.com/graue/esofiles/tree/master/brainfuck/util/">utilities</a>.</li>
+<li><a rel="nofollow" class="external text" href="http://www.49-6-dev.net/takingovertheworlden.htm">Taking-</a> and <a rel="nofollow" class="external text" href="http://www.49-6-dev.net/ftotwen.htm">Finally Taking Over The World</a> are games written by hand in brainfuck.</li>
+<li><a rel="nofollow" class="external text" href="http://esoteric.sange.fi/ENSI/bf-implementors-epistle.html">The Epistle to the Implementors</a></li>
+<li><a rel="nofollow" class="external text" href="http://esosc.mroman.ch/ESOSC-2014-A2.TXT">ESOSC-2014-A2: Normalized Brainfuck</a></li>
+<li><a rel="nofollow" class="external text" href="https://github.com/syncsynchalt/mutato">Mutato</a> is a mashup of Core War, brainfuck, and genetic algorithms.</li>
+<li><a rel="nofollow" class="external text" href="https://www.luogu.com/article/kktpcrrc">Introduction of this language in Chinese</a></li>
+<li><i>(<a href="/wiki/Template:Deadlink" title="Template:Deadlink">dead link</a>)</i> Urban Müller's talk about Brainfuck at Tamedia TX 2017 <a rel="nofollow" class="external text" href="https://youtu.be/gjm9irBs96U?t=8722">YouTube (video)</a></li></ul>
+<h3><span class="mw-headline" id="Notable_implementations">Notable implementations</span></h3>
+<p>For a longer list, see <a href="/wiki/Brainfuck_implementations" title="Brainfuck implementations">brainfuck implementations</a>.
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://main.aminet.net/dev/lang/brainfuck-2.lha">Original distribution by Urban Müller</a> from the <a rel="nofollow" class="external text" href="http://www.aminet.net">AmiNet</a> archive. Includes interpreter and compiler for the Amiga. The interpreter can be compiled with <a rel="nofollow" class="external text" href="http://gcc.gnu.org/">gcc</a> by removing line 43, which says <i>chkabort();</i>. The associated <a rel="nofollow" class="external text" href="http://main.aminet.net/dev/lang/brainfuck-2.readme">readme file</a> might also have some historical interest.</li>
+<li><a rel="nofollow" class="external text" href="http://code.google.com/p/awib/">Also Written In Brainfuck (Awib)</a> is an optimizing brainfuck compiler written in brainfuck, generates various conversions including i386 executable code for Linux.</li>
+<li><a rel="nofollow" class="external text" href="https://github.com/lifthrasiir/esotope-bfc">Esotope Brainfuck compiler</a> is an optimizing Brainfuck-to-C compiler written in Python, with well optimised code.</li>
+<li><a rel="nofollow" class="external text" href="https://vanheusden.com/compilers/brainfuck/">Brainfuck</a> compiler/translator to COBOL, C, x86, mips, arm, 6502, ada, bash, c#, go, hlasm, lua, java, js, pascal, PDP-11 asm, perl 5/6, pl/1, php, python, ruby, rust, scala, z80</li></ul>
+<h4><span class="mw-headline" id="Compilers">Compilers</span></h4>
+<ul><li><a rel="nofollow" class="external text" href="https://github.com/tomhea/flip-jump">bf2fj</a> a compiler from brainfuck to <a href="/wiki/FlipJump" title="FlipJump">FlipJump</a>.</li>
+<li><a rel="nofollow" class="external text" href="https://github.com/none-None1/BrainFExec">BrainFExec</a> a compiler from brainfuck to Windows executable in C&#35;</li>
+<li><a rel="nofollow" class="external text" href="https://github.com/aartaka/sade">Sade</a> a compiler from brainfuck to Lisp and to native executables.</li></ul>
+<h4><span class="mw-headline" id="Interpreters_in_plain_C">Interpreters in plain C</span></h4>
+<ul><li><a rel="nofollow" class="external text" href="http://sree.kotay.com/2013/02/implementing-brainfuck.html">bffsree</a> is a optimizing interpreter that claims to be fastest in class. (No source code)</li>
+<li><a href="/wiki/Brainfucker%2B%2B" title="Brainfucker++">Brainfucker++</a> A great project！</li>
+<li><a rel="nofollow" class="external text" href="https://gist.github.com/lifthrasiir/596667">160-byte implementation for x86 Linux</a></li>
+<li><a rel="nofollow" class="external text" href="https://github.com/aartaka/reb">Reb</a>, a Brainfuck toolkit and interpreter with the goal of using regex as much as possible.</li>
+<li>Optimizing BF interpreter, a fast C interpreter. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20230719142919/https://mazonka.com/brainf/">Archived</a> (archive.org). Last updated: 2011.</li></ul>
+<h4><span id="Interpreters_in_C.2B.2B"></span><span class="mw-headline" id="Interpreters_in_C++">Interpreters in C++</span></h4>
+<ul><li><a rel="nofollow" class="external text" href="https://github.com/JohnCGriffin/BrainForked/">BrainForked</a> is a fast non-JIT interpreter in C++.</li>
+<li><a rel="nofollow" class="external text" href="http://www.luogu.com.cn/blog/tiger2005/bf-bian-yi-qi">An interpreter</a> written by Chinese users. It can visualize code, but unfortunately it can't handle undefined characters.</li>
+<li><a href="/wiki/Brainfuck_C%2B%2B_interpreter" title="Brainfuck C++ interpreter">A simple, optimizing interpreter</a> in C++ by <a href="/wiki/User:None1" title="User:None1">User:None1</a>.</li></ul>
+<h4><span class="mw-headline" id="JIT_Interpreters">JIT Interpreters</span></h4>
+<ul><li><a rel="nofollow" class="external text" href="https://savannah.nongnu.org/projects/libbf">libbf</a> is a very fast JIT interpreter, still very fast ten years later.</li>
+<li><a rel="nofollow" class="external text" href="https://github.com/rdebath/Brainfuck/tree/master/tritium">Tritium</a> is a optimizing interpreter that claims to be fastest in all classes. (including plain C)</li>
+<li><a rel="nofollow" class="external text" href="https://github.com/Wilfred/bfc">Wilfred bfc</a> is a fast interpreter written in <a rel="nofollow" class="external text" href="https://www.rust-lang.org/en-US/">Rust</a> using <a rel="nofollow" class="external text" href="http://llvm.org/">LLVM</a>.</li>
+<li><a rel="nofollow" class="external text" href="https://github.com/none-None1/jitbf">jitbf</a> is a JIT interpreter in Python using <a rel="nofollow" class="external text" href="http://llvm.org/">LLVM</a>,which is tested to be faster than most non-JIT interpreters in C when running short code.</li></ul>
+<h4><span class="mw-headline" id="Hardware_implementations">Hardware implementations</span></h4>
+<ul><li><a rel="nofollow" class="external text" href="http://grapsus.net/74/">Brainfuck on 74 series logic IC's </a></li>
+<li><a rel="nofollow" class="external text" href="https://hackaday.io/project/18599-brainfuckpc-relay-computer">BrainfuckPC Relay Computer</a></li>
+<li><a rel="nofollow" class="external text" href="https://people.csail.mit.edu/wjun/papers/sigtbd16.pdf">50,000,000,000 Instructions Per Second: Design and Implementation of a 256-Core BrainFuck Computer</a></li>
+<li>The Brainf*ck CPU Project is a VHDL implementation of a brainfuck CPU: <a rel="nofollow" class="external text" href="https://web.archive.org/web/20211002125602/http://www.clifford.at/bfcpu/">www.clifford.at: The Brainf*ck CPU</a> <i>(from the <a href="https://en.wikipedia.org/wiki/Wayback_Machine" class="extiw" title="wikipedia:Wayback Machine">Wayback Machine</a>; retrieved on 2 October 2021)</i></li></ul>
+<h4><span class="mw-headline" id="Libraries">Libraries</span></h4>
+<ul><li><a rel="nofollow" class="external text" href="https://github.com/erwijet/BrainF.Net">BrainF.Net</a> is a .NET wrapper by <a href="/w/index.php?title=Erwijet&amp;action=edit&amp;redlink=1" class="new" title="Erwijet (page does not exist)">Erwijet</a> for executing brainfuck code.</li></ul>
+<h4><span class="mw-headline" id="JavaScript_interpreters">JavaScript interpreters</span></h4>
+<ul><li><a rel="nofollow" class="external text" href="https://zedlx.com/OokBF/ookbf-interpreter">OokBF</a>, an online interpreter with a debugger, also includes a cross-platform Runtime Environment for brainf**k.</li>
+<li><a rel="nofollow" class="external text" href="https://infinitedonuts.github.io/esolang-playground/">A brainf**k interpreter in JavaScript</a> <i>(<a href="/wiki/Template:Deadlink" title="Template:Deadlink">dead link</a>)</i></li>
+<li><a href="/wiki/Brainfuck_JavaScript_interpreter" title="Brainfuck JavaScript interpreter">An interpreter</a> in JavaScript by <a href="/wiki/User:None1" title="User:None1">User:None1</a>.</li>
+<li>The very golfed 250 bytes 3-cell BF interpreter by <a href="/wiki/User:Cleverxia" title="User:Cleverxia">User:Cleverxia</a>:
+<ul><li>This returns a lambda function, argument is the code.</li></ul></li></ul>
+<pre class="rectwrap">r=&gt;{s=f=u=t=[];for(i of x){++u;if(i=='[')s.push(t);else if(i==']')f[f[u]=s.pop()]=u;}N=[0n,0n,0n];for(a=0;t&lt;u;++t)switch(r[t]){case'+':N[a]+=2n;case'-':N[a--]--;case'&gt;':a+=2;case'&lt;':a=(a+2)%3;break;case'[':t=N[a]?t:f[t];break;case']':t=N[a]?f[t]:t;}}</pre>
+<h4><span class="mw-headline" id="Rust_interpreter">Rust interpreter</span></h4>
+<ul><li><a rel="nofollow" class="external text" href="https://github.com/Jomy10/Brainfuck-rs/">Brainfuck-rs</a></li></ul>
+<h4><span class="mw-headline" id="Python_interpreters">Python interpreters</span></h4>
+<ul><li><a rel="nofollow" class="external text" href="https://github.com/itruffat/ONABOBFE4P_BrainFck_Emulators">Oh No, Another Bunch of BrainF*ck Emulators</a>: a library to specify your own brainf*ck interpeter in Python. (customize rollback, max integer, etc.) <a href="/wiki/ONABOBFE4P" title="ONABOBFE4P">[esolang page]</a></li>
+<li><a rel="nofollow" class="external text" href="https://github.com/none-None1/bf-vis">A brainfuck visualizer</a> in Python created by <a href="/wiki/User:None1" title="User:None1">User:None1</a>. <a rel="nofollow" class="external text" href="https://github.com/none-None1/bf-vis/releases/download/1.1.0/brainfuck-visualizer.exe">as Windows executable (64bit)</a></li>
+<li><a href="/wiki/Brainfuck_Python_interpreter" title="Brainfuck Python interpreter">brainfuck Python interpreter</a> by <a href="/wiki/User:None1" title="User:None1">User:None1</a></li>
+<li><a rel="nofollow" class="external text" href="https://github.com/Thevitebsk/ESO/blob/main/ESO.py">(Partial) ESO brainfuck interpreter</a> by <a href="/wiki/Ractangle" title="Ractangle">Ractangle</a></li></ul>
+<h4><span class="mw-headline" id="Dart_interpreters">Dart interpreters</span></h4>
+<ul><li><a rel="nofollow" class="external text" href="https://github.com/gus-caribe/bfck">bfck</a>: A Dart command-line interpreter for brainfuck esolang (by <a href="/wiki/User:Gus-caribe" title="User:Gus-caribe">User:Gus-caribe</a>).</li>
+<li><a rel="nofollow" class="external text" href="https://github.com/ernestoittig/dartfuck">dartfuck</a>: A Dart implementation of Brainfuck.</li>
+<li><a rel="nofollow" class="external text" href="https://github.com/renatoathaydes/dart-bf">dart-bf</a>: brainfuck implementation in Dart.</li></ul>
+<h4><span class="mw-headline" id="Powershell_interpreters">Powershell interpreters</span></h4>
+<ul><li><a href="/wiki/Brainfuck_Powershell_interpreter" title="Brainfuck Powershell interpreter">An interpreter</a> by <a href="/wiki/User:None1" title="User:None1">User:None1</a>.</li></ul>
+<h4><span class="mw-headline" id="Haskell_interpreters">Haskell interpreters</span></h4>
+<ul><li><a rel="nofollow" class="external text" href="https://gitlab.com/Hakerh400/haskell-projects/-/blob/master/bf/Main.hs?ref_type=heads">Interpreter</a> written by <a href="/wiki/User:Hakerh400" title="User:Hakerh400">User:Hakerh400</a></li></ul>
+<h4><span class="mw-headline" id="Interpreters_in_other_esolangs">Interpreters in other esolangs</span></h4>
+<p>See <a href="/wiki/Brainfuck/Esointerpreters" title="Brainfuck/Esointerpreters">Brainfuck/Esointerpreters</a>.    
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20240703223448
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.093 seconds
+Real time usage: 0.112 seconds
+Preprocessor visited node count: 515/1000000
+Post‐expand include size: 4460/2097152 bytes
+Template argument size: 1464/2097152 bytes
+Highest expansion depth: 5/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 292/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   18.107      1 -total
+ 31.23%    5.655      5 Template:Wayback
+ 27.95%    5.061      2 Template:Deadlink
+ 20.93%    3.789      1 Template:Distinguish/Confusion
+  5.94%    1.075      1 Template:Lowercase
+  4.86%    0.880      1 Template:Infobox_proglang
+  2.50%    0.453      1 Template:Featured_language
+-->
+
+<!-- Saved in parser cache with key esolang_wiki:pcache:idhash:961-0!canonical and timestamp 20240703223448 and revision id 132002. Rendering was triggered because: page-view
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://esolangs.org/w/index.php?title=Brainfuck&amp;oldid=132002">https://esolangs.org/w/index.php?title=Brainfuck&amp;oldid=132002</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:Featured_languages" title="Category:Featured languages">Featured languages</a></li><li><a href="/wiki/Category:Languages" title="Category:Languages">Languages</a></li><li><a href="/wiki/Category:Turing_tarpits" title="Category:Turing tarpits">Turing tarpits</a></li><li><a href="/wiki/Category:Low-level" title="Category:Low-level">Low-level</a></li><li><a href="/wiki/Category:Cell-based" title="Category:Cell-based">Cell-based</a></li><li><a href="/wiki/Category:Implemented" title="Category:Implemented">Implemented</a></li><li><a href="/wiki/Category:Brainfuck" title="Category:Brainfuck">Brainfuck</a></li><li><a href="/wiki/Category:1993" title="Category:1993">1993</a></li><li><a href="/wiki/Category:Turing_complete" title="Category:Turing complete">Turing complete</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation"  >
+	<h3
+		id="p-personal-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="pt-createaccount" class="mw-list-item"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Brainfuck" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Brainfuck" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span>Log in</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy vector-menu" aria-labelledby="p-namespaces-label" role="navigation"  >
+	<h3
+		id="p-namespaces-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="ca-nstab-main" class="selected mw-list-item"><a href="/wiki/Brainfuck" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="mw-list-item"><a href="/wiki/Talk:Brainfuck" rel="discussion" title="Discussion about the content page [t]" accesskey="t"><span>Discussion</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown vector-menu" aria-labelledby="p-variants-label" role="navigation"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-variants-label"
+	>
+	<label
+		id="p-variants-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu-tabs vector-menu-tabs-legacy vector-menu" aria-labelledby="p-views-label" role="navigation"  >
+	<h3
+		id="p-views-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Views</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="ca-view" class="selected mw-list-item"><a href="/wiki/Brainfuck"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/w/index.php?title=Brainfuck&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li><li id="ca-history" class="mw-list-item"><a href="/w/index.php?title=Brainfuck&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown vector-menu" aria-labelledby="p-cactions-label" role="navigation"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-cactions-label"
+	>
+	<label
+		id="p-cactions-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<h3 >Search</h3>
+	<form action="/w/index.php" id="searchform" class="vector-search-box-form">
+		<div id="simpleSearch"
+			class="vector-search-box-inner"
+			 data-search-loc="header-navigation">
+			<input class="vector-search-box-input"
+				 type="search" name="search" placeholder="Search Esolang" aria-label="Search Esolang" autocapitalize="sentences" title="Search Esolang [f]" accesskey="f" id="searchInput"
+			>
+			<input type="hidden" name="title" value="Special:Search">
+			<input id="mw-searchButton"
+				 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+			<input id="searchButton"
+				 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel" class="vector-legacy-sidebar">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu-portal portal vector-menu" aria-labelledby="p-navigation-label" role="navigation"  >
+	<h3
+		id="p-navigation-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Navigation</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="n-mainpage-description" class="mw-list-item"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-portal" class="mw-list-item"><a href="/wiki/Esolang:Community_portal" title="About the project, what you can do, where to find things"><span>Community portal</span></a></li><li id="n-Language-list" class="mw-list-item"><a href="/wiki/Language_list"><span>Language list</span></a></li><li id="n-Browse-by-category" class="mw-list-item"><a href="/wiki/Esolang:Categorization"><span>Browse by category</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-randompage" class="mw-list-item"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x"><span>Random page</span></a></li><li id="n-help" class="mw-list-item"><a href="/wiki/Esolang:Help" title="The place to find out"><span>Help</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu-portal portal vector-menu" aria-labelledby="p-tb-label" role="navigation"  >
+	<h3
+		id="p-tb-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="t-whatlinkshere" class="mw-list-item"><a href="/wiki/Special:WhatLinksHere/Brainfuck" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/wiki/Special:RecentChangesLinked/Brainfuck" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/w/index.php?title=Brainfuck&amp;oldid=132002" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/w/index.php?title=Brainfuck&amp;action=info" title="More information about this page"><span>Page information</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 2 July 2024, at 20:33.</li>
+	<li id="footer-info-copyright">Content is available under <a href="/wiki/Esolang:Copyrights" title="Esolang:Copyrights">CC0 public domain dedication</a>.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-about"><a href="/wiki/Esolang:About">About Esolang</a></li>
+	<li id="footer-places-disclaimers"><a href="/wiki/Esolang:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="http://creativecommons.org/publicdomain/zero/1.0/"><img src="/w/resources/assets/licenses/cc-0.png" alt="CC0 public domain dedication" width="88" height="31" loading="lazy"></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"></a></li>
+	<li id="footer-hostedbyico"><a href="https://www.bytemark.co.uk/r/esolangs"><img src="/w/images/hosting_bytemark_88x31.png" srcset="/w/images/hosting_bytemark_132x47.png 1.5x, /w/images/hosting_bytemark_176x62.png 2x" alt="Hosting donated by Bytemark" width="88" height="31" loading="lazy"></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":179,"wgPageParseReport":{"limitreport":{"cputime":"0.093","walltime":"0.112","ppvisitednodes":{"value":515,"limit":1000000},"postexpandincludesize":{"value":4460,"limit":2097152},"templateargumentsize":{"value":1464,"limit":2097152},"expansiondepth":{"value":5,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":292,"limit":5000000},"timingprofile":["100.00%   18.107      1 -total"," 31.23%    5.655      5 Template:Wayback"," 27.95%    5.061      2 Template:Deadlink"," 20.93%    3.789      1 Template:Distinguish/Confusion","  5.94%    1.075      1 Template:Lowercase","  4.86%    0.880      1 Template:Infobox_proglang","  2.50%    0.453      1 Template:Featured_language"]},"cachereport":{"timestamp":"20240703223448","ttl":86400,"transientcontent":false}}});});</script>
+</body>
+<!-- Cached 20240703224350 -->
+</html>
