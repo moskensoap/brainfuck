@@ -15,7 +15,7 @@ This repository contains a Brainfuck interpreter written in C. It supports dynam
 
 # brainfuck-compiler
 
-The compiler, written in C, generates C code from Brainfuck source files and passes this C code to the `cc` compiler via a pipeline.
+The Brainfuck compiler, written in C, generates C code from Brainfuck source files and passes it to the `cc` compiler via a pipeline. Additionally, the compiler will get Brainfuck code from stdin and put C code to stdout when no source files are chosen.
 
 ## Process
 
@@ -30,10 +30,11 @@ The compiler, written in C, generates C code from Brainfuck source files and pas
 * __Compiles Brainfuck to C:__ Generates C code from Brainfuck source files.
 * __Support for Dynamic Memory:__ Handles dynamic memory requirements for large Brainfuck programs.
 * __Pipeline Compilation:__ The generated C code is directly passed to a C compiler using a pipeline, allowing for seamless compilation into executables.
+* __Standard Input Support:__ When no source files are chosen, the compiler reads Brainfuck code from stdin and outputs the corresponding C code to stdout.
 
 # brainfuck-generator(tbf.bf)
 
-The generator, written in Brainfuck, converts normal text to Brainfuck code. This code can be directly run using the `brainfuck-interpreter` or compiled with the `brainfuck-compiler`.
+The generator, written in Brainfuck, converts normal text to Brainfuck code. It can be directly run using the `brainfuck-interpreter` or compiled with the `brainfuck-compiler`.
 
 ## Idea
 
@@ -43,7 +44,9 @@ The generator, written in Brainfuck, converts normal text to Brainfuck code. Thi
 
 3.Use `.` to putchar
 
-## Example
+## Examples
+
+See [README.bf](./LICENSE.bf)
 
 ```
 $ echo hello
@@ -64,17 +67,42 @@ $ echo hello | ./bf ./tbf.bf
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.<<<.>>>>>>>..>>>.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<.<<<<<<<<<<.
 ```
 
+# Ook! translator(bf2ook.bf and ook2bf.bf)
+
+The translator, written in brainfuck, converts Brainfuck code to Ook! code and vice versa. It can be directly run using the `brainfuck-interpreter` or compiled with the `brainfuck-compiler`.
+
+## Idea
+
+Find key words and output the translation.
+
+## Examples
+
+See [LICENSE.ook](./LICENSE.ook)
+
+```
+$ echo "><+-.,[]" | ./bf2ook.exe
+Ook. Ook? Ook? Ook. Ook. Ook. Ook! Ook! Ook! Ook. Ook. Ook! Ook! Ook? Ook? Ook!
+
+$ echo "><+-.,[]" | ./bf2ook.exe | ./ook2bf.exe
+><+-.,[]
+
+$ echo "Ook. Ook? (Ook? Ook?) Ook? Ook. Ook. Ook. Ook! Ook! Ook! Ook. Ook. Ook! Ook! Ook? Ook? Ook!" | ./ook2bf.exe
+>banana<+-.,[]
+```
+
 # Installation
 0.Dependencies
 ```
-makedepends={'make','cc'}
-depends={'cc'}
+makedepends={'make','gcc'}
+depends={'gcc'}
 ```
+If compiling in MSYS2-MINGW, you can use `'${MINGW_PACKAGE_PREFIX}-cc'` instead of `'gcc'`.
+
 1.Compile the Program
 ```
 make
 ```
-2.Move `bf`, `bfc`, and `tbf.exe` to a directory in your PATH
+2.Move `bf`, `bfc`, `tbf.exe`, `bf2ook.exe`, and `ook2bf.exe` to a directory in your PATH
 
 3.Optionally, compile Brainfuck code from other projects using `bfc`
 ```

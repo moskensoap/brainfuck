@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>DM's Esoteric Programming Languages - Ook!</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="993300" vlink="663300">
+<h1>Ook!</h1>
+<hr>
+
+<h2>Introduction</h2>
+Ook! is a programming language designed for orang-utans. Ook! is essentially isomorphic to the well-known esoteric language <a href="http://www.muppetlabs.com/~breadbox/bf/">BrainF***</a>, but has even fewer syntax elements.
+
+<h2>Design Principles</h2>
+<ul>
+<li>A programming language should be writable and readable by orang-utans.</li>
+<li>To this end, the syntax should be simple, easy to remember, and not mention the word "monkey".</li>
+<li>Bananas are good.</li>
+</ul>
+
+<h2>Language Concepts</h2>
+If you are familiar with <a href="http://www.muppetlabs.com/~breadbox/bf/">BrainF***</a> you can skip straight to the syntax elements section. Note that since Ook! is trivially isomorphic to BrainF***, it is well-established that Ook! is a Turing-complete programming language.
+
+<h3>Memory Array and Pointer</h3>
+Ook! uses a large array of integers as storage space, all initially set to zero. A <i>Memory Pointer</i> begins pointing at the first array cell.
+
+<h3>Comments</h3>
+Since the word "ook" can convey entire ideas, emotions, and abstract thoughts depending on the nuances of inflection, Ook! has no need of comments. The code itself serves perfectly well to describe in detail what it does and how it does it. Provided you are an orang-utan.
+
+<h2>Syntax Elements</h2>
+Ook! has only three distinct syntax elements:
+<ul>
+<li><code>Ook.</code></li>
+<li><code>Ook?</code></li>
+<li><code>Ook!</code></li>
+</ul>
+These are combined into groups of two, and the various pair combinations specify commands. Programs must thus contain an
+even number of "Ook"s. Line breaks are ignored.
+
+<h3>Commands</h3>
+<ul>
+<li><code>Ook. Ook?</code><br>
+Move the Memory Pointer to the next array cell.</li>
+<li><code>Ook? Ook.</code><br>
+Move the Memory Pointer to the previous array cell.</li>
+<li><code>Ook. Ook.</code><br>
+Increment the array cell pointed at by the Memory Pointer.</li>
+<li><code>Ook! Ook!</code><br>
+Decrement the array cell pointed at by the Memory Pointer.</li>
+<li><code>Ook. Ook!</code><br>
+Read a character from STDIN and put its ASCII value into the cell pointed at by the Memory Pointer.</li>
+<li><code>Ook! Ook.</code><br>
+Print the character with ASCII value equal to the value in the cell pointed at by the Memory Pointer.</li>
+<li><code>Ook! Ook?</code><br>
+Move to the command following the matching <code>Ook?&nbsp;Ook!</code> if the value in the cell pointed at by the Memory Pointer is zero. Note that <code>Ook!&nbsp;Ook?</code> and <code>Ook?&nbsp;Ook!</code> commands nest like pairs of parentheses, and matching pairs are defined in the same way as for parentheses.</li>
+<li><code>Ook? Ook!</code><br>
+Move to the command following the matching <code>Ook!&nbsp;Ook?</code> if the value in the cell pointed at by the Memory Pointer is non-zero.</li>
+<li><code>Ook? Ook?</code><br>
+Give the Memory Pointer a banana.</li>
+</ul>
+Um, that's it. That's the whole language. What do you expect for something usable by orang-utans?
+
+<h2>Resources</h2>
+<ul>
+<li><a href="Ook.java">Java Ook!-to-BrainF*** and BrainF***-to-Ook! converter</a>. Automatically detects which language your source file is written in and converts it to the other.</li>
+<li>Chad Fowler has written an <a href="http://www.ruby-lang.org/en/raa-list.rhtml?name=RubyOok">Ook! interpreter in Ruby</a>.</li>
+<li>&Oslash;yvind Gr&oslash;nnesby has written an <a href="http://www.orakel.ntnu.no/~oyving/code/python/pook.py">Ook! interpreter in Python</a>.</li>
+<li>Lawrence Pit has written an <a href="http://bluesorcerer.net/esoteric/ook.html">Ook! compiler in .Net, called Ook#</a>.</li>
+<li><a href="http://www.iki.fi/jhi/">Jarkko Hietaniemi</a> has written an <a href="http://search.cpan.org/search?module=Acme::Ook">Ook! perl intepreter module</a>.</li>
+<li>Rudolf Seitz has written an <a href="http://www.my-palm.de/">Ook! IDE for Palm-OS</a>.</li>
+<li>Just in case you wanted to compile your Ook! source code into <a href="bit.html">BIT</a> to take advantage of that language's features, Ben Lubar has <a href="https://github.com/BenLubar/bit/tree/master/cmd/ook">written a compiler to do just that</a>!</li>
+<li>Joe-ds has written an <a href="https://joe-ds.github.io/pages/181120_ooktobf.html">Ook!-BrainF*** convertor which runs in your web browser</a>.</li>
+</ul>
+
+<hr>
+<a href="../">Home</a> | <a href="./">Esoteric Programming Languages</a><br>
+
+<i>Last updated: Monday, 07 March, 2022; 01:00:27 PST.</i><br>
+Copyright &copy; 1990-2022, David Morgan-Mar. <i>d&#109;m&#64;danger&#109;ouse&#46;n&#101;t</i><br>
+<i>Hosted by: <a href="http://www.dreamhost.com/rewards.cgi?dmmaus">DreamHost</a></i>
+
+</body>
+</html>

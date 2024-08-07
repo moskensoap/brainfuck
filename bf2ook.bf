@@ -258,5 +258,3 @@ flag:           this(11)    this(13)    this(15)    this(17)    this(19)    this
     <<<<<<<<<<<<<<<<<<<<<<<<<                                       25                                          0
     
 ]                                                                   0       loop until EOF                      0
-
-.                                                                   0       putchar(EOF)                        0
