@@ -1,6 +1,6 @@
-# brainfuck-interpreter
+# [brainfuck-interpreter](./brainfuck-interpreter.c)
 
-This repository contains a Brainfuck interpreter written in C. It supports dynamic memory expansion, ensuring the interpreter can handle large and deeply nested Brainfuck programs. The interpreter reads Brainfuck code from files or standard input, making it versatile for various use cases.
+A Brainfuck interpreter written in C. It supports **dynamic memory expansion**, allowing it to handle large and deeply nested Brainfuck programs. The interpreter reads Brainfuck code from files or standard input, making it versatile for various use cases.
 
 ## Features
 
@@ -13,9 +13,11 @@ This repository contains a Brainfuck interpreter written in C. It supports dynam
 * __Interactive Mode:__ Reads Brainfuck code from standard input if no files are provided.
 
 
-# brainfuck-compiler
+# [brainfuck-compiler](./brainfuck-compiler.c)
 
-The Brainfuck compiler, written in C, generates C code from Brainfuck source files and passes it to the `cc` compiler via a pipeline. Additionally, the compiler will get Brainfuck code from stdin and put C code to stdout when no source files are chosen.
+A Brainfuck compiler written in C. It supports **dynamic memory expansion** and generates C code from Brainfuck source files, and then compiles it with the `cc` compiler via a pipeline. Additionally, the compiler can read Brainfuck code from stdin and output C code to stdout when no source files are provided.
+
+Note: The compiled executable can only read from stdin and output to stdout.
 
 ## Process
 
@@ -32,9 +34,9 @@ The Brainfuck compiler, written in C, generates C code from Brainfuck source fil
 * __Pipeline Compilation:__ The generated C code is directly passed to a C compiler using a pipeline, allowing for seamless compilation into executables.
 * __Standard Input Support:__ When no source files are chosen, the compiler reads Brainfuck code from stdin and outputs the corresponding C code to stdout.
 
-# brainfuck-generator(tbf.bf)
+# brainfuck-generator([tbf.bf](./tbf.bf))
 
-The generator, written in Brainfuck, converts normal text to Brainfuck code. It can be directly run using the `brainfuck-interpreter` or compiled with the `brainfuck-compiler`.
+A generator, written in Brainfuck, converts normal text to Brainfuck code. It can be directly run using the `brainfuck-interpreter` or compiled with the `brainfuck-compiler`.
 
 ## Idea
 
@@ -67,13 +69,31 @@ $ echo hello | ./bf ./tbf.bf
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.<<<.>>>>>>>..>>>.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<.<<<<<<<<<<.
 ```
 
-# Ook! translator(bf2ook.bf and ook2bf.bf)
+# Ook! translator([bf2ook.bf](./bf2ook.bf) and [ook2bf.bf](./ook2bf.bf))
 
-The translator, written in brainfuck, converts Brainfuck code to Ook! code and vice versa. It can be directly run using the `brainfuck-interpreter` or compiled with the `brainfuck-compiler`.
+A translator, written in Brainfuck, converts Brainfuck code to Ook! code and vice versa. It can be directly run using the `brainfuck-interpreter` or compiled with the `brainfuck-compiler`.
 
 ## Idea
 
-Find key words and output the translation.
+Find key words and output the translation. (Easy in C, but hard in Brainfuck)
+```
+Ook!    ->      Brainfuck   ->      Ook!
+.?              >                   Ook. Ook?
+?.              <                   Ook? Ook.
+..              +                   Ook. Ook.
+!!              -                   Ook! Ook!
+!.              .                   Ook! Ook.
+.!              ,                   Ook. Ook!
+!?              [                   Ook! Ook?
+?!              ]                   Ook? Ook!
+??              banana                                     
+```
+
+When writing Brainfuck code, it is useful to remember and reuse certain code blocks, combining them to create larger and more complex programs.
+
+It is recommended to read ook2bf.bf first, followed by bf2ook.bf, and finally tbf.bf, in reverse order of their creation.
+
+ook2bf.bf has a better design description and more detailed comments.
 
 ## Examples
 
