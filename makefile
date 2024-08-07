@@ -1,4 +1,4 @@
-all:bf bfc tbf bf2ook ook2bf
+all:bf bfc tbf bf2ook ook2bf bf2blub blub2bf
 
 bf:brainfuck-interpreter.c
 	cc -o bf brainfuck-interpreter.c -O3 -s
@@ -20,6 +20,17 @@ ook2bf:bfc ook2bf.bf
 	./bfc ook2bf.bf
 	cp ook2bf.bf.exe ook2bf.exe
 	rm ook2bf.bf.exe
+
+bf2blub:bfc bf2blub.bf
+	./bfc bf2blub.bf
+	cp bf2blub.bf.exe bf2blub.exe
+	rm bf2blub.bf.exe
+
+blub2bf:bfc blub2bf.bf
+	./bfc blub2bf.bf
+	cp blub2bf.bf.exe blub2bf.exe
+	rm blub2bf.bf.exe
+
 
 others:2bf self-interpreters bfbf bfgen life bf2c brainfuck-code-generator bf2c-awib
 

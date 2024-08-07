@@ -1,6 +1,6 @@
-# [brainfuck-interpreter](./brainfuck-interpreter.c)
+# [Brainfuck-interpreter](./brainfuck-interpreter.c)
 
-A Brainfuck interpreter written in C. It supports **dynamic memory expansion**, allowing it to handle large and deeply nested Brainfuck programs. The interpreter reads Brainfuck code from files or standard input, making it versatile for various use cases.
+A [Brainfuck](https://esolangs.org/wiki/Brainfuck) interpreter written in C. It supports **dynamic memory expansion**, allowing it to handle large and deeply nested Brainfuck programs. The interpreter reads Brainfuck code from files or standard input, making it versatile for various use cases.
 
 ## Features
 
@@ -13,7 +13,7 @@ A Brainfuck interpreter written in C. It supports **dynamic memory expansion**, 
 * __Interactive Mode:__ Reads Brainfuck code from standard input if no files are provided.
 
 
-# [brainfuck-compiler](./brainfuck-compiler.c)
+# [Brainfuck-compiler](./brainfuck-compiler.c)
 
 A Brainfuck compiler written in C. It supports **dynamic memory expansion** and generates C code from Brainfuck source files, and then compiles it with the `cc` compiler via a pipeline. Additionally, the compiler can read Brainfuck code from stdin and output C code to stdout when no source files are provided.
 
@@ -34,9 +34,9 @@ Note: The compiled executable can only read from stdin and output to stdout.
 * __Pipeline Compilation:__ The generated C code is directly passed to a C compiler using a pipeline, allowing for seamless compilation into executables.
 * __Standard Input Support:__ When no source files are chosen, the compiler reads Brainfuck code from stdin and outputs the corresponding C code to stdout.
 
-# brainfuck-generator([tbf.bf](./tbf.bf))
+# Brainfuck-generator([tbf.bf](./tbf.bf))
 
-A generator, written in Brainfuck, converts normal text to Brainfuck code. It can be directly run using the `brainfuck-interpreter` or compiled with the `brainfuck-compiler`.
+A generator, written in Brainfuck, converts normal text to Brainfuck code. It can be directly run using the `Brainfuck-interpreter` or compiled with the `Brainfuck-compiler`.
 
 ## Idea
 
@@ -69,9 +69,9 @@ $ echo hello | ./bf ./tbf.bf
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.<<<.>>>>>>>..>>>.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<.<<<<<<<<<<.
 ```
 
-# Ook! translator([bf2ook.bf](./bf2ook.bf) and [ook2bf.bf](./ook2bf.bf))
+# [Ook!](https://esolangs.org/wiki/Ook!) translator ([bf2ook.bf](./bf2ook.bf) and [ook2bf.bf](./ook2bf.bf))
 
-A translator, written in Brainfuck, converts Brainfuck code to Ook! code and vice versa. It can be directly run using the `brainfuck-interpreter` or compiled with the `brainfuck-compiler`.
+A translator, written in Brainfuck, converts Brainfuck code to Ook! code and vice versa. It can be directly run using the `Brainfuck-interpreter` or compiled with the `Brainfuck-compiler`.
 
 ## Idea
 
@@ -109,6 +109,36 @@ $ echo "><+-.,[]" | ./bf2ook.exe | ./ook2bf.exe
 $ echo "Ook. Ook? (Ook? Ook?) Ook? Ook. Ook. Ook. Ook! Ook! Ook! Ook. Ook. Ook! Ook! Ook? Ook? Ook!" | ./ook2bf.exe
 >banana<+-.,[]
 ```
+
+# [Blub](https://esolangs.org/wiki/Blub) translator ([bf2blub.bf](./bf2blub.bf) and [blub2bf.bf](./blub2bf.bf))
+
+A translator, written in Brainfuck, similar to the Ook! translator but for fish instead of orangutans, by changing `Ook` to `Blub`. When encountering (Blub? Blub?), give the memory pointer some fishfood.
+
+
+# Phantom
+
+Phantom: An esoteric programming language designed by [moskensoap](https://github.com/moskensoap) on 8/7/2024. It is almost exactly like [Ook](https://esolangs.org/wiki/Ook!) and [Blub](https://esolangs.org/wiki/Blub), but changed into Phantom words, inspired by [Whitespace](https://esolangs.org/wiki/Whitespace).
+
+## Commands
+
+\[Space\], \[Tab\], and \[LF\] for Space (ASCII 32), Tab (ASCII 9), and Line Feed (ASCII 10).
+
+| Brainfuck | Phantom            | Description                                 |
+|-----------|--------------------|---------------------------------------------|
+| >         | \[Space\]\[LF\]    | Move the pointer to the right               |
+| <         | \[LF\]\[Space\]    | Move the pointer to the left                |
+| +         | \[Space\]\[Space\] | Increment the memory cell under the pointer |
+| -         | \[Tab\]\[Tab\]     | Decrement the memory cell under the pointer |
+| .         | \[Tab\]\[Space\]   | Output the character signified by the cell at the pointer |
+| ,         | \[Space\]\[Tab\]   | Input a character and store it in the cell at the pointer |
+| [         | \[Tab\]\[LF\]      | Jump past the matching \[LF\]\[Tab\] if the cell under the pointer is 0 |
+| ]         | \[LF\]\[Tab\]      | Jump back to the matching \[Tab\]\[LF\]     |
+| n/a       | \[LF\]\[LF\]       | Give the memory pointer some whisper        |
+
+## File extension(s)
+
+`.ptm`, `.phantom`, `.whisper`
+
 
 # Installation
 0.Dependencies
