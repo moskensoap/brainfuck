@@ -151,23 +151,45 @@ See [LICENSE.phantom](./LICENSE.phantom)
 
 
 # Installation
-0.Dependencies
+0. Dependencies
 ```
 makedepends={'make','gcc'}
 depends={'gcc'}
 ```
-If compiling in MSYS2-MINGW, you can use `'${MINGW_PACKAGE_PREFIX}-cc'` instead of `'gcc'`.
+If compiling in MSYS2 **mingw-w64**, you can use `'${MINGW_PACKAGE_PREFIX}-cc'` instead of `'gcc'`.
 
-1.Compile the Program
+1. Compile the Program
 ```
 make
 ```
-2.Move `bf`, `bfc`, `tbf.exe`, `bf2ook.exe`, and `ook2bf.exe` to a directory in your PATH
+2. Move Executables to PATH
 
-3.Optionally, compile Brainfuck code from other projects using `bfc`
+Move the following executables to a directory in your PATH:
+
+* `bf`: Brainfuck Interpreter
+* `bfc`: Brainfuck Compiler
+* `tbf.exe`: Brainfuck Generator from normal text
+* `bf2ook.exe`: Brainfuck to Ook! Translator
+* `ook2bf.exe`: Ook! to Brainfuck Translator
+* `bf2blub.exe`: Brainfuck to Blub Translator
+* `blub2bf.exe`: Blub to Brainfuck Translator
+* `bf2phantom.exe`: Brainfuck to Phantom Translator
+* `phantom2bf.exe`: Phantom to Brainfuck Translator
+
+3. Optional: Compile Brainfuck Code from Other Projects
+
+To compile Brainfuck code from other projects using bfc, run:
+
 ```
 make others
 ```
+
+Then, move the new executables to a directory in your PATH.
+
+* Brainfuck Generator: `2bf.exe`, `bfgen.exe`, `bf-code-generator.exe`
+* Brainfuck Interpreter: `bf-by-adam-domurad-code-percent-input.exe`, `bf-by-clive-gifford-code-exclamation-point-input.exe`, `bf-by-daniel-b-cristofani-code-exclamation-point-input.exe`, `bf-by-frans-faase-code-exclamation-point-input.exe`, `bf-by-keymaker-code-exclamation-point-input.exe`, `bfbf.exe`
+* Brainfuck to C Translator: `bf2c.exe`, `bf2c-awib.exe`
+* game: `life.exe`
 
 # Usage
 
