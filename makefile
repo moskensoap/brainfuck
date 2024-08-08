@@ -1,4 +1,4 @@
-all:bf bfc tbf bf2ook ook2bf bf2blub blub2bf
+all:bf bfc tbf bf2ook ook2bf bf2blub blub2bf bf2phantom phantom2bf
 
 bf:brainfuck-interpreter.c
 	cc -o bf brainfuck-interpreter.c -O3 -s
@@ -6,31 +6,41 @@ bf:brainfuck-interpreter.c
 bfc:brainfuck-compiler.c
 	cc -o bfc brainfuck-compiler.c -O3 -s
 
-tbf:bfc tbf.bf
-	./bfc tbf.bf
-	cp tbf.bf.exe tbf.exe
-	rm tbf.bf.exe
+tbf:bfc my-bf-programs/tbf.bf
+	./bfc my-bf-programs/tbf.bf
+	cp my-bf-programs/tbf.bf.exe tbf.exe
+	rm my-bf-programs/tbf.bf.exe
 
-bf2ook:bfc bf2ook.bf
-	./bfc bf2ook.bf
-	cp bf2ook.bf.exe bf2ook.exe
-	rm bf2ook.bf.exe
+bf2ook:bfc my-bf-programs/bf2ook.bf
+	./bfc my-bf-programs/bf2ook.bf
+	cp my-bf-programs/bf2ook.bf.exe bf2ook.exe
+	rm my-bf-programs/bf2ook.bf.exe
 
-ook2bf:bfc ook2bf.bf
-	./bfc ook2bf.bf
-	cp ook2bf.bf.exe ook2bf.exe
-	rm ook2bf.bf.exe
+ook2bf:bfc my-bf-programs/ook2bf.bf
+	./bfc my-bf-programs/ook2bf.bf
+	cp my-bf-programs/ook2bf.bf.exe ook2bf.exe
+	rm my-bf-programs/ook2bf.bf.exe
 
-bf2blub:bfc bf2blub.bf
-	./bfc bf2blub.bf
-	cp bf2blub.bf.exe bf2blub.exe
-	rm bf2blub.bf.exe
+bf2blub:bfc my-bf-programs/bf2blub.bf
+	./bfc my-bf-programs/bf2blub.bf
+	cp my-bf-programs/bf2blub.bf.exe bf2blub.exe
+	rm my-bf-programs/bf2blub.bf.exe
 
-blub2bf:bfc blub2bf.bf
-	./bfc blub2bf.bf
-	cp blub2bf.bf.exe blub2bf.exe
-	rm blub2bf.bf.exe
+blub2bf:bfc my-bf-programs/blub2bf.bf
+	./bfc my-bf-programs/blub2bf.bf
+	cp my-bf-programs/blub2bf.bf.exe blub2bf.exe
+	rm my-bf-programs/blub2bf.bf.exe
 
+bf2phantom:bfc my-bf-programs/bf2phantom.bf
+	./bfc my-bf-programs/bf2phantom.bf
+	cp my-bf-programs/bf2phantom.bf.exe bf2phantom.exe
+	rm my-bf-programs/bf2phantom.bf.exe
+
+phantom2bf:bfc my-bf-programs/phantom2bf.bf
+	./bfc my-bf-programs/phantom2bf.bf
+	cp my-bf-programs/phantom2bf.bf.exe phantom2bf.exe
+	rm my-bf-programs/phantom2bf.bf.exe
+	
 
 others:2bf self-interpreters bfbf bfgen life bf2c brainfuck-code-generator bf2c-awib
 

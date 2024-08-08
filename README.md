@@ -34,7 +34,7 @@ Note: The compiled executable can only read from stdin and output to stdout.
 * __Pipeline Compilation:__ The generated C code is directly passed to a C compiler using a pipeline, allowing for seamless compilation into executables.
 * __Standard Input Support:__ When no source files are chosen, the compiler reads Brainfuck code from stdin and outputs the corresponding C code to stdout.
 
-# Brainfuck-generator([tbf.bf](./tbf.bf))
+# Brainfuck-generator([tbf.bf](./my-bf-programs/tbf.bf))
 
 A generator, written in Brainfuck, converts normal text to Brainfuck code. It can be directly run using the `Brainfuck-interpreter` or compiled with the `Brainfuck-compiler`.
 
@@ -69,7 +69,7 @@ $ echo hello | ./bf ./tbf.bf
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.<<<.>>>>>>>..>>>.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<.<<<<<<<<<<.
 ```
 
-# [Ook!](https://esolangs.org/wiki/Ook!) translator ([bf2ook.bf](./bf2ook.bf) and [ook2bf.bf](./ook2bf.bf))
+# [Ook!](https://esolangs.org/wiki/Ook!) Translator ([bf2ook.bf](./my-bf-programs/bf2ook.bf) and [ook2bf.bf](./my-bf-programs/ook2bf.bf))
 
 A translator, written in Brainfuck, converts Brainfuck code to Ook! code and vice versa. It can be directly run using the `Brainfuck-interpreter` or compiled with the `Brainfuck-compiler`.
 
@@ -110,9 +110,9 @@ $ echo "Ook. Ook? (Ook? Ook?) Ook? Ook. Ook. Ook. Ook! Ook! Ook! Ook. Ook. Ook! 
 >banana<+-.,[]
 ```
 
-# [Blub](https://esolangs.org/wiki/Blub) translator ([bf2blub.bf](./bf2blub.bf) and [blub2bf.bf](./blub2bf.bf))
+# [Blub](https://esolangs.org/wiki/Blub) translator ([bf2blub.bf](./my-bf-programs/bf2blub.bf) and [blub2bf.bf](./my-bf-programs/blub2bf.bf))
 
-A translator, written in Brainfuck, similar to the Ook! translator but for fish instead of orangutans, by changing `Ook` to `Blub`. When encountering (Blub? Blub?), give the memory pointer some fishfood.
+A translator between Brainfuck and Blub, written in Brainfuck, similar to the Ook! translator but for fish instead of orangutans. When encountering (Blub? Blub?), give the memory pointer some fishfood.
 
 
 # Phantom
@@ -137,7 +137,17 @@ Phantom: An esoteric programming language designed by [moskensoap](https://githu
 
 ## File extension(s)
 
-`.ptm`, `.phantom`, `.whisper`
+`.phantom`, `.whisper`
+
+## Phantom Translator ([bf2phantom](./my-bf-programs/bf2phantom.bf) and [phantom2bf](./my-bf-programs/phantom2bf.bf))
+
+A translator between Brainfuck and Phantom, written in Brainfuck. When encountering (\[LF\]\[LF\]), give the memory pointer some whisper.
+
+## Examples
+
+See [LICENSE.phantom](./LICENSE.phantom)
+
+![](./helloworld.png)
 
 
 # Installation
