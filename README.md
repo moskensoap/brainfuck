@@ -194,7 +194,7 @@ Then, move the new executables to a directory in your PATH.
 * Brainfuck Generator: `2bf.exe`, `bfgen.exe`, `bf-code-generator.exe`
 * Brainfuck Interpreter: `bf-by-adam-domurad-code-percent-input.exe`, `bf-by-clive-gifford-code-exclamation-point-input.exe`, `bf-by-daniel-b-cristofani-code-exclamation-point-input.exe`, `bf-by-frans-faase-code-exclamation-point-input.exe`, `bf-by-keymaker-code-exclamation-point-input.exe`, `bfbf.exe`
 * Brainfuck to C Translator: `bf2c.exe`, `bf2c-awib.exe`
-* game: `life.exe`
+* game: `life.exe`, `life-small.exe`, `life-medium.exe`, `life-large.exe`
 
 # Usage
 

@@ -82,9 +82,15 @@ bfgen:bfc examples-from-others/bfgen/bfgen.bf
 	./bfc examples-from-others/bfgen/bfgen.bf
 	cp examples-from-others/bfgen/bfgen.bf.exe ./bfgen.exe
 
-life:bfc examples-from-others/brainfuck.org/life.b
+life:bfc examples-from-others/brainfuck.org/life.b examples-from-others/brainfuck.org/life-small.b examples-from-others/brainfuck.org/life-medium.b examples-from-others/brainfuck.org/life-large.b
 	./bfc examples-from-others/brainfuck.org/life.b
 	cp examples-from-others/brainfuck.org/life.b.exe ./life.exe
+	./bfc examples-from-others/brainfuck.org/life-small.b
+	cp examples-from-others/brainfuck.org/life-small.b.exe ./life-small.exe
+	./bfc examples-from-others/brainfuck.org/life-medium.b
+	cp examples-from-others/brainfuck.org/life-medium.b.exe ./life-medium.exe
+	./bfc examples-from-others/brainfuck.org/life-large.b
+	cp examples-from-others/brainfuck.org/life-large.b.exe ./life-large.exe
 
 bf2c:bfc examples-from-others/brainfuck.org/dbf2c.b
 	./bfc examples-from-others/brainfuck.org/dbf2c.b
