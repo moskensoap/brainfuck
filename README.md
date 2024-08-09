@@ -166,8 +166,13 @@ make
 
 Move the following executables to a directory in your PATH:
 
-* `bf`: Brainfuck Interpreter
-* `bfc`: Brainfuck Compiler
+* `bf`, `bf-zero`: Brainfuck Interpreter ([EOF](https://esolangs.org/wiki/Brainfuck#EOF) = 0)
+* `bfc`, `bfc-zero`: Brainfuck Compiler (EOF = 0)
+* `bf-minus1`: Brainfuck Interpreter (EOF = -1)
+* `bfc-minus1`: Brainfuck Compiler (EOF = -1)
+* `bf-unchanged`: Brainfuck Interpreter (EOF unchanged)
+* `bfc-unchanged`: Brainfuck Compiler (EOF unchanged)
+
 * `tbf.exe`: Brainfuck Generator from normal text
 * `bf2ook.exe`: Brainfuck to Ook! Translator
 * `ook2bf.exe`: Ook! to Brainfuck Translator
