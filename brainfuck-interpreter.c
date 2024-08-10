@@ -150,6 +150,11 @@ void interpret(char *c)
                         bracket_level++;
                     else if (*pc == ']')
                         bracket_level--;
+                    else if (*pc == '\0')
+                    {
+                        puts("UNBALANCED BRACKETS");
+                        exit(EXIT_FAILURE);
+                    }
                 }
             }
             else
@@ -161,19 +166,27 @@ void interpret(char *c)
         case ']':
             if (a[p] != 0)
             {
-                if (is_empty(&stack))
+                if (!is_empty(&stack))
+                {
+                    // Jump back to the matching '['
+                    pc = f + pop(&stack) - 1; // -1 to adjust for pc++ increment
+                }
+                else
                 {
                     puts("UNBALANCED BRACKETS");
                     exit(EXIT_FAILURE);
                 }
-                // Jump back to the matching '['
-                pc = f + pop(&stack) - 1; // -1 to adjust for pc++ increment
             }
             else
             {
                 if (!is_empty(&stack))
                 {
                     pop(&stack); // Discard the matching '[' position
+                }
+                else
+                {
+                    puts("UNBALANCED BRACKETS");
+                    exit(EXIT_FAILURE);
                 }
             }
             break;

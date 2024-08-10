@@ -149,7 +149,7 @@ void generate_c_code(FILE *output_file, char *brainfuck_code)
                 fprintf(stderr, "UNBALANCED BRACKETS\n");
                 exit(EXIT_FAILURE);
             }
-            pop(&stack);
+            loop_counter=pop(&stack);
             fprintf(output_file, "    }\n");
             break;
         }
