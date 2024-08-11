@@ -180,6 +180,9 @@ Move the following executables to a directory in your PATH:
 * `blub2bf.exe`: Blub to Brainfuck Translator
 * `bf2phantom.exe`: Brainfuck to Phantom Translator
 * `phantom2bf.exe`: Phantom to Brainfuck Translator
+* `bf2c-zero.exe`: Brainfuck to C Translator(EOF = 0)
+* `bf2c-minus1.exe`: Brainfuck to C Translator(EOF = -1)
+* `bf2c-unchanged.exe`: Brainfuck to C Translator(EOF unchanged)
 
 3. Optional: Compile Brainfuck Code from Other Projects
 

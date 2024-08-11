@@ -1,4 +1,4 @@
-all:bf bfc bf-minus1 bfc-minus1 bf-unchanged bfc-unchanged tbf bf2ook ook2bf bf2blub blub2bf bf2phantom phantom2bf
+all:bf bfc bf-minus1 bfc-minus1 bf-unchanged bfc-unchanged tbf bf2ook ook2bf bf2blub blub2bf bf2phantom phantom2bf bf2c-zero bf2c-minus1 bf2c-unchanged
 
 bf:brainfuck-interpreter.c
 	cc -o bf brainfuck-interpreter.c -O3 -s
@@ -55,6 +55,22 @@ phantom2bf:bfc my-bf-programs/phantom2bf.bf
 	./bfc my-bf-programs/phantom2bf.bf
 	cp my-bf-programs/phantom2bf.bf.exe phantom2bf.exe
 	rm my-bf-programs/phantom2bf.bf.exe
+
+
+bf2c-zero:bfc my-bf-programs/bf2c-zero.bf
+	./bfc my-bf-programs/bf2c-zero.bf
+	cp my-bf-programs/bf2c-zero.bf.exe bf2c-zero.exe
+	rm my-bf-programs/bf2c-zero.bf.exe
+
+bf2c-minus1:bfc my-bf-programs/bf2c-minus1.bf
+	./bfc my-bf-programs/bf2c-minus1.bf
+	cp my-bf-programs/bf2c-minus1.bf.exe bf2c-minus1.exe
+	rm my-bf-programs/bf2c-minus1.bf.exe
+
+bf2c-unchanged:bfc my-bf-programs/bf2c-unchanged.bf
+	./bfc my-bf-programs/bf2c-unchanged.bf
+	cp my-bf-programs/bf2c-unchanged.bf.exe bf2c-unchanged.exe
+	rm my-bf-programs/bf2c-unchanged.bf.exe
 	
 
 others:2bf self-interpreters bfbf bfgen life bf2c brainfuck-code-generator bf2c-awib
