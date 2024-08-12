@@ -57,18 +57,18 @@ phantom2bf:bfc my-bf-programs/phantom2bf.bf
 	rm my-bf-programs/phantom2bf.bf.exe
 
 
-bf2c-zero:bfc my-bf-programs/bf2c-zero.bf
-	./bfc my-bf-programs/bf2c-zero.bf
+bf2c-zero:bfc-unchanged my-bf-programs/bf2c-zero.bf
+	./bfc-unchanged my-bf-programs/bf2c-zero.bf
 	cp my-bf-programs/bf2c-zero.bf.exe bf2c-zero.exe
 	rm my-bf-programs/bf2c-zero.bf.exe
 
-bf2c-negone:bfc my-bf-programs/bf2c-negone.bf
-	./bfc my-bf-programs/bf2c-negone.bf
+bf2c-negone:bfc-unchanged my-bf-programs/bf2c-negone.bf
+	./bfc-unchanged my-bf-programs/bf2c-negone.bf
 	cp my-bf-programs/bf2c-negone.bf.exe bf2c-negone.exe
 	rm my-bf-programs/bf2c-negone.bf.exe
 
-bf2c-unchanged:bfc my-bf-programs/bf2c-unchanged.bf
-	./bfc my-bf-programs/bf2c-unchanged.bf
+bf2c-unchanged:bfc-unchanged my-bf-programs/bf2c-unchanged.bf
+	./bfc-unchanged my-bf-programs/bf2c-unchanged.bf
 	cp my-bf-programs/bf2c-unchanged.bf.exe bf2c-unchanged.exe
 	rm my-bf-programs/bf2c-unchanged.bf.exe
 	

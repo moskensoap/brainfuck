@@ -1,7 +1,7 @@
 ( Brainfuck code to C code translator: written by moskensoap 2024 )
 ( https://github(dot)com/moskensoap/brainfuck )
 # Converts Brainfuck code to C code (EOF=-1)
-# Assumes the interpreter or compiler supports EOF=0 or leaves EOF unchanged
+# Assumes the interpreter or compiler supports EOF=-1 or leaves EOF unchanged
 
 main variable: this(0)
 temp: this(1)
@@ -68,7 +68,7 @@ ASCII: this(19)=NULL this(20)^^^this(n)=target string
 <<<<<<<<<<<<<<<<<<<                                                 19                                          0
 
 +[                                                                  0       while(this(0)!=0)                   0
-    [-]
+    [-]-
     ,                                                               0       this(0)=input()                     0
 
     #set initial value of !flag to 0 and flag to 1
@@ -392,6 +392,7 @@ ASCII: this(19)=NULL this(20)^^^this(n)=target string
 
     <<<<<<<<<<<<<<<<<<                                              18                                          0
     
+    +                                                               0       this(0)=this(0) plus 1              1
 ]                                                                   0       loop until EOF                      0
 
 #print the tail of the C code
