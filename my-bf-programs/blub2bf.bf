@@ -1,6 +1,7 @@
 ( Blub code to Brainfuck code translator: written by moskensoap 2024 )
 ( https://github(dot)com/moskensoap/brainfuck )
-#convert Blub code to Brainfuck code
+# Converts Blub code to Brainfuck code
+# Assumes the interpreter or compiler supports EOF=0 or leaves EOF unchanged
 
 
 variable:   this(0)
@@ -37,6 +38,7 @@ if target char found(comma) do nothing
 
 
 +[                                                                  0       while(this(0)!=0)                   0
+    [-]
     ,                                                               0       this(0)=getchar()                   0
 
     #initialize this(1) and this(2) to 0

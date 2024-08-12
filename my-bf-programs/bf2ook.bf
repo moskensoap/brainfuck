@@ -1,6 +1,7 @@
 ( Brainfuck code to Ook! code translator: written by moskensoap 2024 )
 ( https://github(dot)com/moskensoap/brainfuck )
-#convert Brainfuck code to Ook! code
+# Converts Brainfuck code to Ook! code
+# Assumes the interpreter or compiler supports EOF=0 or leaves EOF unchanged
 
 main variable: this(0)
 temp: this(1)
@@ -22,6 +23,7 @@ flag:           this(11)    this(13)    this(15)    this(17)    this(19)    this
 
 
 +[                                                                  0       while(this(0)!=0)                   0
+    [-]
     ,                                                               0       this(0)=input()                     0
 
     #set initial value of !flag to 0 and flag to 1

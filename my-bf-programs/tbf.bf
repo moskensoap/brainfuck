@@ -1,5 +1,6 @@
 ( Text to Brainfuck code generator: written by moskensoap 2024 )
 ( https://github(dot)com/moskensoap/brainfuck )
+# Assumes the interpreter or compiler supports EOF=0 or leaves EOF unchanged
 
 Generate code to creat an arithmetic sequence: a(0)=0 a(1)=1 ^^^ a(255)=255 a(256)=256=0
 Then move back to a(0)
@@ -22,6 +23,7 @@ Special thanks to https://github(dot)com/itchyny/2bf for generating meta code be
 #this(1) = new input this(2) = old input this(3) = temp
 +                                               0   this(0)=1 to enable loop                0
 [                                               0   while(this(0)!=0)                       0
+    [-]
     ,                                           0   this(0)=getchar()                       0
     #cp this(0) to this(0) and this(1) by two steps
     >[-]>>[-]<<<                                0   this(1)=0   this(3)=0                   0
