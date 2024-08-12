@@ -1,4 +1,4 @@
-all:bf bfc bf-minus1 bfc-minus1 bf-unchanged bfc-unchanged tbf bf2ook ook2bf bf2blub blub2bf bf2phantom phantom2bf bf2c-zero bf2c-minus1 bf2c-unchanged
+all:bf bfc bf-negone bfc-negone bf-unchanged bfc-unchanged tbf bf2ook ook2bf bf2blub blub2bf bf2phantom phantom2bf bf2c-zero bf2c-negone bf2c-unchanged
 
 bf:brainfuck-interpreter.c
 	cc -o bf brainfuck-interpreter.c -O3 -s
@@ -8,11 +8,11 @@ bfc:brainfuck-compiler.c
 	cc -o bfc brainfuck-compiler.c -O3 -s
 	cc -o bfc-zero brainfuck-compiler.c -O3 -s
 
-bf-minus1:brainfuck-interpreter-minus1.c
-	cc -o bf-minus1 brainfuck-interpreter-minus1.c -O3 -s
+bf-negone:brainfuck-interpreter-negone.c
+	cc -o bf-negone brainfuck-interpreter-negone.c -O3 -s
 
-bfc-minus1:brainfuck-compiler-minus1.c
-	cc -o bfc-minus1 brainfuck-compiler-minus1.c -O3 -s
+bfc-negone:brainfuck-compiler-negone.c
+	cc -o bfc-negone brainfuck-compiler-negone.c -O3 -s
 
 bf-unchanged:brainfuck-interpreter-unchanged.c
 	cc -o bf-unchanged brainfuck-interpreter-unchanged.c -O3 -s
@@ -62,10 +62,10 @@ bf2c-zero:bfc my-bf-programs/bf2c-zero.bf
 	cp my-bf-programs/bf2c-zero.bf.exe bf2c-zero.exe
 	rm my-bf-programs/bf2c-zero.bf.exe
 
-bf2c-minus1:bfc my-bf-programs/bf2c-minus1.bf
-	./bfc my-bf-programs/bf2c-minus1.bf
-	cp my-bf-programs/bf2c-minus1.bf.exe bf2c-minus1.exe
-	rm my-bf-programs/bf2c-minus1.bf.exe
+bf2c-negone:bfc my-bf-programs/bf2c-negone.bf
+	./bfc my-bf-programs/bf2c-negone.bf
+	cp my-bf-programs/bf2c-negone.bf.exe bf2c-negone.exe
+	rm my-bf-programs/bf2c-negone.bf.exe
 
 bf2c-unchanged:bfc my-bf-programs/bf2c-unchanged.bf
 	./bfc my-bf-programs/bf2c-unchanged.bf
