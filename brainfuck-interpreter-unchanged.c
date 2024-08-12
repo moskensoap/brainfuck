@@ -96,7 +96,7 @@ void interpret(char *c)
 
     char *pc = c; // Program counter
     int tmp;
-    unsigned long long bracket_level = 0; // Using larger data type for deep nesting
+    size_t bracket_level = 0; // Using larger data type for deep nesting
     p = a_size / 2;
 
     // Initialize memory array a to zero
