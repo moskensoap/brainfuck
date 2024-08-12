@@ -168,8 +168,8 @@ Move the following executables to a directory in your PATH:
 
 * `bf`, `bf-zero`: Brainfuck Interpreter ([EOF](https://esolangs.org/wiki/Brainfuck#EOF) = 0)
 * `bfc`, `bfc-zero`: Brainfuck Compiler (EOF = 0)
-* `bf-minus1`: Brainfuck Interpreter (EOF = -1)
-* `bfc-minus1`: Brainfuck Compiler (EOF = -1)
+* `bf-negone`: Brainfuck Interpreter (EOF = -1)
+* `bfc-negone`: Brainfuck Compiler (EOF = -1)
 * `bf-unchanged`: Brainfuck Interpreter (EOF unchanged)
 * `bfc-unchanged`: Brainfuck Compiler (EOF unchanged)
 
@@ -181,7 +181,7 @@ Move the following executables to a directory in your PATH:
 * `bf2phantom.exe`: Brainfuck to Phantom Translator
 * `phantom2bf.exe`: Phantom to Brainfuck Translator
 * `bf2c-zero.exe`: Brainfuck to C Translator(EOF = 0)
-* `bf2c-minus1.exe`: Brainfuck to C Translator(EOF = -1)
+* `bf2c-negone.exe`: Brainfuck to C Translator(EOF = -1)
 * `bf2c-unchanged.exe`: Brainfuck to C Translator(EOF unchanged)
 
 3. Optional: Compile Brainfuck Code from Other Projects
